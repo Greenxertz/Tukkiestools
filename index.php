@@ -70,17 +70,22 @@
         <h2>Featured Products</h2>
         <p>Tools often purchased</p>
         <div class="pro-container">
+        
+            <?php include('server/get_featured_products.php') ?>
 
-            <div class="pro" onclick="window.location.href='sproduct.html';">
-                <img src="" alt="">
-                <div class="des">
-                    <span>Arduino</span>
-                    <h5>boards</h5>
-                    <h4>R75</h4>
+            <?php while($row = $featured_products->fetch_assoc()){ ?>
+
+                <div class="pro" onclick="window.location.href='sproduct.html';">
+                   <img src="assets/images/<?php echo $row['product_category']; ?>/<?php echo $row['product_image']; ?>" alt="<?php echo $row['product_name']; ?>">
+                   <div class="des">
+                        <span><?php echo $row['product_category']; ?></span>
+                        <h5><?php echo $row['product_name']; ?></h5>
+                        <h4>R <?php echo $row['product_price']; ?> </h4>
+                   </div>
+                    <a href="#"><i class="fal fa-shopping-cart cart"></i></a>
                 </div>
-                <a href="#"><i class="fal fa-shopping-cart cart"></i></a>
-            </div>
-            
+            <?php } ?>
+
         </div>
     </section>
 
@@ -96,17 +101,22 @@
         <p>Some of the latest Items</p>
         <div class="pro-container">
 
-            <div class="pro" onclick="window.location.href='sproduct.html';">
-                <img src="" alt="">
-                <div class="des">
-                    <span>Arduino</span>
-                    <h5>boards</h5>
-                    <h4>R75</h4>
-                </div>
-                <a href="#"><i class="fal fa-shopping-cart cart"></i></a>
-            </div> 
+        <?php include('server/get_featured_products.php') ?>
+
+        <?php while($row = $featured_products->fetch_assoc()){ ?>
+
+           <div class="pro" onclick="window.location.href='sproduct.html';">
+               <img src="assets/images/<?php echo $row['product_category']; ?>/<?php echo $row['product_image']; ?>" alt="<?php echo $row['product_name']; ?>">
+               <div class="des">
+                    <span><?php echo $row['product_category']; ?></span>
+                    <h5><?php echo $row['product_name']; ?></h5>
+                    <h4>R <?php echo $row['product_price']; ?> </h4>
+             </div>
+              <a href="#"><i class="fal fa-shopping-cart cart"></i></a>
+           </div>
+        <?php } ?>
                
-        </div>
+     </div>
     </section>
 
     <section id="sm-banner" class="section-p1">
