@@ -1,26 +1,30 @@
-@import url("https://fonts.googleapis.com/css2?family=Spartan:wght@100;200;300;400;500;600;700;800;900&display=swap");
+/* import the fontstyle for the website */
+@import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap');
+
+/* global styles */
 * { 
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Spartan', sans-serif;    
+    font-family: 'Chakra Petch', sans-serif;    
 }
 
 h1 {
     font-size: 50px;
     line-height: 64px;
-    color: black;
+    color: #263F73;
+    
 }
 
 h2 {
     font-size: 46px;
     line-height: 54px;
-    color: black;
+    color: #F2F2F2;
 }
 
 h4 {
     font-size: 20px;
-    color: black;
+    color: #F2F2F2;
 }
 
 h6 {
@@ -30,7 +34,8 @@ h6 {
 
 p { 
     font-size: 16px;
-    color: #026874;
+    font-weight: 1000;
+    color: #F2F2F2;
     margin: 15px 0 20px 0;
 }
 
@@ -59,13 +64,14 @@ body {
     width: 100%;
 }
 
+/* top of website */
 #header {
     display: flex;
     align-content: center;
     justify-content: space-between;
     background-color: transparent;
-    padding: 20px 80px;
-    background: #026874;
+    padding: 10px 20px;
+    background: #1C3659;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.06);
     z-index: 999;
     position: sticky;
@@ -73,10 +79,15 @@ body {
     left: 0;
 } 
 
+
+
+/* navigation bar */
 #navbar {
     display: flex;
     align-items: center;
     justify-content: center;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
 }
 
 #navbar li{
@@ -89,7 +100,7 @@ position: relative;
     text-decoration: none;
     font-size: 15px ;
     font-weight: 600;
-    color: black;
+    color: #9298A6;
     transition: 0.3s ease;
 }
 
@@ -118,9 +129,9 @@ position: relative;
     display: none;
 }
 
-/*home page*/
+/*home page banner*/
 #hero {
-    background-image: url(images/homepage.png);
+    background-image: url(../images/homepage.png);
     background-size: cover; 
     background-repeat: no-repeat;  
     height: 90vh;
@@ -131,6 +142,8 @@ position: relative;
     flex-direction: column;
     align-items: flex-start;
     justify-content: center;
+    background-color: rgba(0,0,0,0.5);
+    background-blend-mode: overlay;
 }
 
 #hero h4{
@@ -142,15 +155,21 @@ position: relative;
 }
 
 #hero button {
-   background-image: url() ; /*look for an image*/
-   background-color: transparent;
-   color: #ebf0f3;
+   background-color: #ebf0f3;
+   color: #1C3659;
    border: 0;
    padding: 14px 80px 14px 65px;
    background-repeat: no-repeat;
    cursor: pointer;
    font-weight: 700;
    font-size: 15px;
+   border-radius: 15px;
+   transition: 0.3s ease;
+}
+
+#hero button:hover {
+    background-color: #1C3659;
+    color: #ebf0f3;
 }
 
 #feature {
@@ -160,13 +179,13 @@ position: relative;
     flex-wrap: wrap ;
     
 }
-
+/* featured item boxes */
 #feature .fe-box {
  width: 180px;
  text-align: center;
  padding: 25px 15px;
  box-shadow: 20px 20px 34px rgba(0, 0, 0, 0.03);
- border: 1px solid #026874;
+ border: 1px solid #1C3659;
  border-radius: 4px;
  margin: 15px 0;
 }
@@ -185,16 +204,15 @@ position: relative;
     padding: 9px 8px 6px 8px;
     line-height: 1;
     border-radius: 4px;
-    color: #ebf0f3;
-    background-color: #d2d7da;
+    color: #F2F2F2;
+    background-color: #1C3659;
 }
 
-#feature .fe-box:nth-child(2) h6{
-
-}
-
+/* products being displayed */
 #product1 {
     text-align: center;
+    background-color: #9298A6;
+    background-blend-mode: color;
 }
 
 #product1 .pro-container{
@@ -232,26 +250,27 @@ position: relative;
 }
 
 #product1 .pro .des span{
-    color: #d2d7da;
+    color: #F2F2F2;
     font-size: 12px;
+    font-weight: 400;
 }
 
 #product1 .pro .des h5{
     padding-top:7px ;
-    color:#011c27 ;
+    color:#1C3659 ;
     font-size: 14px;
 }
 
 #product1 .pro .des i{
     font-size: 12px;
-    color: yellow;
+    color: #1C3659;
 }
 
 #product1 .pro .des h4{
     padding-top: 7px;
     font-size: 15px;
     font-weight: 700;
-    color: #011c27;
+    color: #1C3659;
 }
 
 #product1 .pro .cart{
@@ -259,22 +278,22 @@ position: relative;
     height: 40px;
     line-height: 40px;
     border-radius: 40px;
-    background-color: #026874;
+    background-color: #F2F2F2;
     font-weight: 500;
-    color: #ebf0f3;
-    border: 1px solid #011c27;
+    color: #1C3659;
+    border: 2px solid #1C3659;
     position: absolute;
     bottom: 20px;
     right: 10px;
 }
-
+/* banner midway home page */
 #banner{
 display: flex;
-flex-direction: column;
-justify-content: center;
+flex-direction:column ;
+justify-content:center;
 align-items: center;
 text-align: center;
-background-image: url(images/banner1.jpg) ;
+background-image: url(../images/banner1.jpg) ;
 width: 100%;
 height: 40vh;
 background-size: cover;
@@ -282,64 +301,71 @@ background-position: center;
 }
 
 #banner h4 {
-    color: #011c27;
+    color: #F2F2F2;
     font-size:16px ;
+    text-shadow: 0 5px 15px rgba(0, 0, 0, 1);
 }
 
 #banner h2 {
-    color: #011c27;
+    color: #4E7DA6;
     font-size: 30px;
     padding: 10px 0;
+    text-shadow: 0 5px 15px rgba(0, 0, 0, 1);
 }
 
 #banner h2 span {
-    color: #026874;
-
+    color: #F2F2F2;
+    text-shadow: 0 5px 15px rgba(0, 0, 0, 1);
 }
 
 #banner button:hover {
-    background-color:#026874;
-    color: #d2d7da;
+    background-color:#1C3659;
+    color: #F2F2F2;
 }
 
 #sm-banner {
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
+    
+    
 }
 
 #sm-banner .banner-box {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
     text-align: flex-start;
-    background-image: url(images/labbanner.png) ;
+    background-image: url(../images/labbanner.png) ;
     min-width: 580px;
     height: 50vh;
     background-size: cover;
     background-position: center;
     padding: 30px;
+    background-color: rgba(0,0,0,0.5);
+    background-blend-mode: overlay;
+    margin-top: 40px;
 }
 
 #sm-banner .banner-box2 {
-    background-image: url(images/pcbbanner.jpg);
+    background-image: url(../images/pcbbanner.jpg); 
 }
 
+
 #sm-banner h4{
-    color: #d2d7da;
+    color: F2F2F2;
     font-size: 20px;
     font-weight: 300;
 }
 
 #sm-banner h2 {
-    color: #d2d7da;
+    color: #F2F2F2;
     font-size: 28px;
     font-weight: 800;
 }
 
 #sm-banner span {
-    color: #d2d7da;
+    color: #F2F2F2;
     font-size: 14px;
     font-weight: 500;
     padding-bottom: 15px;
@@ -349,18 +375,18 @@ button.white {
     font-size: 13px;
     font-weight: 600;
     padding: 11px 18px;
-    color: #d2d7da;
+    color: #F2F2F2;
     background-color: transparent;
     border-radius: 4px;
     cursor: pointer;
     outline: none;
-    border: 1px solid #d2d7da ;
+    border: 1px solid #F2F2F2 ;
     transition: 0.2s ease;
 }
 
 #sm-banner .banner-box:hover button{
-    background-color: #026874;
-    border: 1px solid #026874;
+    background-color: #1C3659;
+    border: 1px solid #1C3659;
 }
 
 #banner3 {
@@ -368,7 +394,6 @@ button.white {
     justify-content:space-between ;
     flex-wrap: wrap;
     padding: 0 80px;
-
 }
 
 #banner3 .banner-box {
@@ -376,32 +401,36 @@ button.white {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    text-align: flex-start;
-    background-image: url(images/robotics.jpg) ;
+    text-align: left;
+    background-image: url(../images/robotics.jpg) ;
     min-width: 30%;
     height: 30vh;
     background-size: cover;
-    background-position: center;
+    background-position: 20% 40%;
     padding: 30px;
     margin-bottom: 20px ;
+    background-color: rgba(0,0,0,0.5);
+    background-blend-mode: overlay;
+
 }
 
 #banner3 .banner-box2 {
-    background-image: url(images/woodworkingtools.jpg) ;  
+    background-image: url(../images/woodworkingtools.jpg) ;  
 }
 
 #banner3 .banner-box3 {
-    background-image: url(images/arttools.jpg) ;  
+    background-image: url(../images/arttools.jpg) ;  
+
 }
 
 #banner3 h2 {
-    color: black;
+    color: #F2F2F2;
     font-weight: 900;
-    font-size: 22px;
+    font-size: 22px;    
 }
 
 #banner3 h3 {
-    color: #026874;
+    color: #F2F2F2;
     font-weight: 800;
     font-size: 15px;
 }
@@ -411,26 +440,29 @@ button.white {
     justify-content: space-between;
     flex-wrap: wrap;
     align-items: center; 
-    background-image: url(images/building.jpg);
+    background-image: url(../images/building.jpg);
     background-repeat: no-repeat;
     background-position: 20% 30%;
-    background-color: #d2d7da;
+    background-color: rgba(0,0,0,0.5);
+    background-blend-mode: overlay;
+    
 }
 
 #newsletter h4{
     font-size: 22px;
     font-weight: 700;
     color: #d2d7da;
+    
 }
 
 #newsletter p{
     font-size: 14px;
     font-weight: 600;
-    color: #026874;
+    color: #d2d7da;
 }
 
 #newsletter p span{
-    color: #d2d7da;
+    color: #9298A6;
 }
 
 #newsletter .form{
@@ -451,17 +483,21 @@ button.white {
 }
 
 #newsletter button {
-    background-color: #026874 ;
+    background-color: #1C3659 ;
     color: #d2d7da;
     white-space-collapse: nowrap;
+    border-radius: 6px;
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
+    height: 3.125rem; 
+    
 }
 
 footer {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
+    background-color: #1C3659;
 }
 
 footer .col{
@@ -490,7 +526,7 @@ footer p{
 footer a{
     font-size: 13px;
     text-decoration: none;
-    color: #011c27; 
+    color: #9298A6; 
     margin-bottom: 10px;   
 }
 
@@ -499,13 +535,13 @@ footer .follow {
 }
 
 footer .follow i{
-    color: #011c27;
+    color: #4E7DA6;
     padding-right: 4px;
     cursor: pointer;
 }
 
 footer .install .row img{
-    border: 1px solid #026874;
+    border: 1px solid #F2F2F2;
     border-radius: 6px;
 }
 
@@ -515,7 +551,7 @@ margin: 10px 0 15px 0;
 
 footer .follow i:hover, 
 footer a:hover{
-    color: #026874;
+    color: #F2F2F2;
 }
 
 footer .copyright {
@@ -524,7 +560,7 @@ footer .copyright {
 }
 
 #page-header {
-    background-image: url();
+    background-image: url(../images/customorder.png);
     width: 100%;
     height: 40vh;
     background-size: cover;
@@ -621,7 +657,7 @@ footer .copyright {
 
 
 #page-header .about-header {
-    background-image: url();
+    background-image: url(../images/building.jpg);
 }
 
 #abouthead {
@@ -878,7 +914,7 @@ padding-bottom: 15px;
     font-size: 13px;
 }
 
-
+/* different screen sizes */
 
 @media screen and (max-width:799px) {
 
