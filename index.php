@@ -14,7 +14,7 @@
 
 <body >
     <header></header>
-
+    <script src="assets/js/header-footer.js"></script>
     <section id="hero">
        <h4>Welcome to Tukkies Tools</h4>
        <h2>Find the tools you need for your practicals</h2>
