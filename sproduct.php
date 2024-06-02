@@ -60,20 +60,20 @@ if (isset($_GET['product_id'])) {
 
          <section id="prodetails" class="section-p1">
              <div class="pro-single-product">
-                
+
                  <img src="assets/images/Shop-images/<?php echo $row['product_category']; ?>/<?php echo $row['product_image']; ?>" width="100%" id="mainimg" alt="<?php echo $row['product_name']; ?>">           
                 <div class="small-img-group">
                     <div class="small-img-col">
-                        <img src="assets/images/Shop-images/<?php echo $row['product_category']; ?>/<?php echo $row['product_image']; ?>" alt="<?php echo $row['product_name']; ?>">                
+                        <img src="assets/images/Shop-images/<?php echo $row['product_category']; ?>/<?php echo $row['product_image']; ?>" width="100%" id="smllimg" alt="<?php echo $row['product_name']; ?>">                
                     </div>
                     <div class="small-img-col">
-                        <img src="assets/images/Shop-images/<?php echo $row['product_category']; ?>/<?php echo $row['product_image2']; ?>" alt="<?php echo $row['product_name']; ?>">                
+                        <img src="assets/images/Shop-images/<?php echo $row['product_category']; ?>/<?php echo $row['product_image2']; ?>" width="100%" id="smllnimg" alt="<?php echo $row['product_name']; ?>">                
                     </div>
                     <div class="small-img-col">
-                        <img src="assets/images/Shop-images/<?php echo $row['product_category']; ?>/<?php echo $row['product_image3']; ?>" alt="<?php echo $row['product_name']; ?>">                
+                        <img src="assets/images/Shop-images/<?php echo $row['product_category']; ?>/<?php echo $row['product_image3']; ?>" width="100%" id="smllnimg" alt="<?php echo $row['product_name']; ?>">                
                     </div>
                     <div class="small-img-col">
-                        <img src="assets/images/Shop-images/<?php echo $row['product_category']; ?>/<?php echo $row['product_image4']; ?>" alt="<?php echo $row['product_name']; ?>">                 
+                        <img src="assets/images/Shop-images/<?php echo $row['product_category']; ?>/<?php echo $row['product_image4']; ?>" width="100%" id="smllnimg" alt="<?php echo $row['product_name']; ?>">                 
                     </div>
                 </div>            
               
