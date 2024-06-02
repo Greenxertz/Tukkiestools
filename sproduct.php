@@ -84,8 +84,19 @@ if (isset($_GET['product_id'])) {
                      <h2><?php echo $row['product_name'];?></h2>
                      <h4>Price: R <?php echo $row['product_price']; ?></h4>
                      <span><?php echo $row['product_description']; ?></span>
-                     <input type="number" value="1">
-                     <button class="btn">add to cart</button>
+                     
+                     <form method="POST" action="cart.php">
+                        <input type="hidden" name="product_id" value="<?php echo $row['product_id']; ?>">
+                        <input type="hidden" name="product_image" value="<?php echo $row['product_image']; ?>">
+                        <input type="hidden" name="product_name" value="<?php echo $row['product_name']; ?>">
+                        <input type="hidden" name="product_price" value="<?php echo $row['product_price']; ?>">
+                        <input type="hidden" name="product_category" value="<?php echo $row['product_category']; ?>">
+
+                        <input type="number" name="product_quantity" value="1">
+                        <button class="btn" type="submit" name="add_to_cart">Add to cart</button>
+                     </form>
+                     
+                     
                  </div>
              </div>
 
