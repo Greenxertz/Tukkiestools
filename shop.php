@@ -26,16 +26,21 @@
 
         <div class="pro-container">
 
-            <div class="pro" onclick="window.location.href='sproduct.php';">
-                <img src="" alt="">
-                <div class="des">
-                    <span>Arduino</span>
-                    <h5>boards</h5>
-                    <h4>R75</h4>
+       <?php include('server/get_all_products.php') ?>
+
+            <?php while($row = $all_products->fetch_assoc()){ ?>
+
+                <div class="pro" onclick="window.location.href='sproduct.php';">
+                   <img src="assets/images/Shop-images/<?php echo $row['product_category']; ?>/<?php echo $row['product_image']; ?>" alt="<?php echo $row['product_name']; ?>">
+                   <div class="des">
+                        <span><?php echo $row['product_category']; ?></span>
+                        <h5><?php echo $row['product_name']; ?></h5>
+                        <h4>R <?php echo $row['product_price']; ?> </h4>
+                   </div>
+                    <a href="#"><i class="fal fa-shopping-cart cart"></i></a>
                 </div>
-                <a href="#"><i class="fal fa-shopping-cart cart"></i></a>
-            </div>
-           
+            <?php } ?>
+
         </div>
     </section>
 
