@@ -29,8 +29,9 @@
        <?php include('server/get_all_products.php') ?>
 
             <?php while($row = $all_products->fetch_assoc()){ ?>
-
-                <div class="pro" onclick="window.location.href='sproduct.php';">
+                
+                
+                <div class="pro" onclick="window.location.href='<?php echo "sproduct.php?product_id=". $row['product_id'];?>';">
                    <img src="assets/images/Shop-images/<?php echo $row['product_category']; ?>/<?php echo $row['product_image']; ?>" alt="<?php echo $row['product_name']; ?>">
                    <div class="des">
                         <span><?php echo $row['product_category']; ?></span>

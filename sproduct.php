@@ -1,3 +1,43 @@
+
+<?php 
+
+include('server/connection.php');
+
+$product = null; // Initialize the product variable
+
+if (isset($_GET['product_id'])) {
+
+    $product_id = $_GET['product_id'];
+
+    if ($conn) {
+        $stmt = $conn->prepare("SELECT * FROM products WHERE product_id = ?");
+        if ($stmt) {
+            $stmt->bind_param("i", $product_id);
+            $stmt->execute();
+            $product = $stmt->get_result();
+
+            if ($product->num_rows == 0) {
+                // No product found, redirect to index
+                 header('Location: index.php');
+                 exit();
+            }
+        } else {
+            echo "Failed to prepare the SQL statement.";
+            exit();
+        }
+    } else {
+        echo "Failed to connect to the database.";
+        exit();
+    }
+
+} else {
+    // Redirect if product_id is not set
+     header('Location: index.php');
+     exit();
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -16,43 +56,44 @@
 <body >
    <header></header>
    
-    <section id="prodetails" class="section-p1">
-        <div class="pro-single-product">
-            <img src="" width="100%" id="mainimg" alt="">
-            <div class="single-pro-details">
-                <h6></h6>
-                <h4></h4>
-                <h2></h2>
-                <select>
-                     <option>
+   <?php while($row = $product ->fetch_assoc()) { ?>
 
-                    </option>
-                </select>
-                <input type="number" value="1">
-                <button class="normal">add to cart</button>
-                <h4></h4>
-                <span></span>
+         <section id="prodetails" class="section-p1">
+             <div class="pro-single-product">
+                
+                 <img src="assets/images/Shop-images/<?php echo $row['product_category']; ?>/<?php echo $row['product_image']; ?>" width="100%" id="mainimg" alt="<?php echo $row['product_name']; ?>">           
+                <div class="small-img-group">
+                    <div class="small-img-col">
+                        <img src="assets/images/Shop-images/<?php echo $row['product_category']; ?>/<?php echo $row['product_image']; ?>" alt="<?php echo $row['product_name']; ?>">                
+                    </div>
+                    <div class="small-img-col">
+                        <img src="assets/images/Shop-images/<?php echo $row['product_category']; ?>/<?php echo $row['product_image2']; ?>" alt="<?php echo $row['product_name']; ?>">                
+                    </div>
+                    <div class="small-img-col">
+                        <img src="assets/images/Shop-images/<?php echo $row['product_category']; ?>/<?php echo $row['product_image3']; ?>" alt="<?php echo $row['product_name']; ?>">                
+                    </div>
+                    <div class="small-img-col">
+                        <img src="assets/images/Shop-images/<?php echo $row['product_category']; ?>/<?php echo $row['product_image4']; ?>" alt="<?php echo $row['product_name']; ?>">                 
+                    </div>
+                </div>            
+              
+              
+                 <div class="single-pro-details">
+                     <h6> </h6>
+                     <h4><?php echo $row['product_category']; ?></h4>
+                     <h2><?php echo $row['product_name'];?></h2>
+                     <h4>Price: R <?php echo $row['product_price']; ?></h4>
+                     <span><?php echo $row['product_description']; ?></span>
+                     <input type="number" value="1">
+                     <button class="btn">add to cart</button>
+                 </div>
+             </div>
 
-            </div>
-        </div>
-
-        <div class="small-img-group">
-            <div class="small-img-col">
-                <img src=""  width="100%" class="small-img" alt="">
-            </div>
-            <div class="small-img-col">
-                <img src=""  width="100%" class="small-img" alt="">
-            </div>
-            <div class="small-img-col">
-                <img src=""  width="100%" class="small-img" alt="">
-            </div>
-            <div class="small-img-col">
-                <img src=""  width="100%" class="small-img" alt="">
-            </div>
-        </div>
-    </section>
-
-    <section id="product1" class="section-p1">
+             
+         </section>
+    <?php } ?>     
+   
+         <section id="product1" class="section-p1">
         <h2>Similar Products</h2>
         <p>Have a gander at something else that might catch your interest</p>
             <div class="pro-container">
@@ -61,7 +102,7 @@
     
                 <?php while($row = $featured_products->fetch_assoc()){ ?>
     
-                    <div class="pro" onclick="window.location.href='sproduct.php';">
+                <div class="pro" onclick="window.location.href='<?php echo "sproduct.php?product_id=". $row['product_id'];?>';">
                        <img src="assets/images/Shop-images/<?php echo $row['product_category']; ?>/<?php echo $row['product_image']; ?>" alt="<?php echo $row['product_name']; ?>">
                        <div class="des">
                             <span><?php echo $row['product_category']; ?></span>
@@ -75,26 +116,20 @@
             </div>
         </section>
 
-    
 
+    
+   
     <footer></footer>
 
     <script>
         var mainimg = document.getElementById("mainimg");
-        var smallimg = document.getElementsByClassName("small-img");
+        var smallimgs = document.querySelectorAll(".small-img-col img");
 
-        smallimg[0].onclick = function(){
-            mainimg.src = smallimg[0].src;
-        }
-        smallimg[1].onclick = function(){
-            mainimg.src = smallimg[1].src;
-        }
-        smallimg[2].onclick = function(){
-            mainimg.src = smallimg[2].src;
-        }
-        smallimg[3].onclick = function(){
-            mainimg.src = smallimg[3].src;
-        }
+        smallimgs.forEach(function(smallimg, index) {
+            smallimg.onclick = function() {
+                mainimg.src = this.src;
+            };
+      });
     </script>
 
 <script src="assets/js/header-footer.js"></script>

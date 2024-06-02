@@ -20,7 +20,7 @@
        <h2>Find the tools you need for your practicals</h2>
        <h1>cant find your stuff?</h1>
        <p>let us know</p>
-       <form action="shop.html"> 
+       <form action="shop.php"> 
         <button class="button">Shopping</button>
        </form>      
     </section>
@@ -61,7 +61,7 @@
 
             <?php while($row = $featured_products->fetch_assoc()){ ?>
 
-                <div class="pro" onclick="window.location.href='sproduct.php';">
+                <div class="pro" onclick="window.location.href='<?php echo "sproduct.php?product_id=". $row['product_id'];?>';">
                    <img src="assets/images/Shop-images/<?php echo $row['product_category']; ?>/<?php echo $row['product_image']; ?>" alt="<?php echo $row['product_name']; ?>">
                    <div class="des">
                         <span><?php echo $row['product_category']; ?></span>
@@ -91,7 +91,7 @@
 
         <?php while($row = $featured_products->fetch_assoc()){ ?>
 
-           <div class="pro" onclick="window.location.href='sproduct.html';">
+            <div class="pro" onclick="window.location.href='<?php echo "sproduct.php?product_id=". $row['product_id'];?>';">
                <img src="assets/images/Shop-images/<?php echo $row['product_category']; ?>/<?php echo $row['product_image']; ?>" alt="<?php echo $row['product_name']; ?>">
                <div class="des">
                     <span><?php echo $row['product_category']; ?></span>
