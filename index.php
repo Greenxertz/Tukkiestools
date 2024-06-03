@@ -153,7 +153,6 @@
 
     <script src="assets/js/header-footer.js"></script>
     <script src="assets/js/navbar.js"></script>
-    <script src="assets/js/test.js"></script>
     
 </body>
 

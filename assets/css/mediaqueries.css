@@ -105,6 +105,10 @@
     #form-deatils form{
         width: 50%;
     }
+
+    #login-form {
+        width: 60%;
+    }
 }
 
 @media  (max-width: 477px) {
@@ -261,6 +265,10 @@
     #subtotal {
         width: 100%;
         padding: 20px;
+    }
+
+    #login-form {
+        width: 70%;
     }
    
 }

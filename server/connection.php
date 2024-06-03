@@ -6,9 +6,9 @@
 
 // Retrieve database credentials from environment variables
 $db_server = "localhost";
-$db_username =  "greenxer_admin";
-$db_password =  "yEnrgJq^)!f=";
-$db_name = "greenxer_php_tukkiestools";
+$db_username =  "root";
+$db_password =  "";
+$db_name = "php_tukkiestools";
 
 // Establish the connection
 $conn = mysqli_connect($db_server, $db_username, $db_password, $db_name);
@@ -22,4 +22,4 @@ if($conn === false){
 
 // Close the connection when done
 // mysqli_close($conn);
-?>
+// 

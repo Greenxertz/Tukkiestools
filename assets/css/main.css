@@ -1020,50 +1020,79 @@ font-size: 14px;
 }
 
 /* login page  */
-
-#user-container {
-background-image: url(assets\images\website-assets\sale.jpg);
-}
-
-#login-form {
-    width: 50%;
-    margin: 5px auto;
+.user-container {
+    padding: 20px;
     text-align: center;
-    padding: 20px ;
-    border-top: 1px solid #1C3659;
+    background-color: rgba(0, 0, 0, 0.5);
+    background-blend-mode: overlay;
 }
 
-#login-form input{
-    width: 50%;
-    margin: 5px auto;
-}
-
-#login-form #register-url {
-    color: #263F73;
-}
-
-/* register page */
-
+#login-form, 
 #register-form {
-    width: 50%;
-    margin: 5px auto;
+    width: 20%;
+    margin: 20px auto;
     text-align: center;
-    padding: 20px ;
-    border-top: 1px solid #1C3659;
+    padding: 20px;
+    border: 1px solid #1C3659;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-#register-form input{
-    width: 50%;
+.form-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 10px 0;
+    position: relative;
+}
+
+#login-form input,
+#register-form input {
+    width: 80%;
     margin: 5px auto;
+    padding: 10px;
+    border: 1px solid #1C3659;
+    border-radius: 5px;
 }
 
-#register-form #register-btn{
-    color: #d2d7da;
-    background-color: #1C3659;
+#login-form button,
+#register-form button {
+    width: 80%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 10px 0;
 }
 
-#login-form #register-url {
+
+.toggle-password {
+    position: absolute;
+    top: 35%;
+    right: 13%;
+    transform: translateY(-50%);
+    cursor: pointer;
+}
+
+.toggle-password1 {
+    position: absolute;
+    top: 65%;
+    right: 13%;
+    transform: translateY(-50%);
+    cursor: pointer;
+}
+
+.register-url {
     color: #263F73;
+    text-decoration: none;  
+    margin-top: 10px;  
+    display: inline-block; 
 }
+
+.register-url:hover {
+    text-decoration: underline;  
+}
+
 
 
