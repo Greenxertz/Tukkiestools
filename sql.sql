@@ -46,6 +46,8 @@ CREATE TABLE IF NOT EXISTS `users` (
     UNIQUE KEY `UX_CONSTRAINT` (`user_email`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+ALTER TABLE `order_items` ADD `product_price` DECIMAL(6,2) NOT NULL AFTER `product_image`, ADD `product_quantity` INT NOT NULL AFTER `product_price`;
+
 
 -- populates the database
 -- Insert data into the 'users' table

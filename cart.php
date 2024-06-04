@@ -67,6 +67,8 @@ if(isset($_POST['add_to_cart'])){
     $_SESSION['cart'][$product_id] = $product_array;
     calculateTotalCart();
 } 
+
+
 function calculateTotalCart(){
 
     $total=0;
@@ -80,10 +82,8 @@ function calculateTotalCart(){
 
         $total = $total + ($price *  $quantity);
     }
-    $_SESSION['$total'] = $total;
+    $_SESSION['total'] = $total;
 }
-
-
 
 ?>
 
@@ -169,7 +169,7 @@ function calculateTotalCart(){
             <table>
                 <tr>
                     <td>Cart Total</td>
-                    <td>R <?php echo $_SESSION['$total']; ?></td>
+                    <td>R <?php echo $_SESSION['total']; ?></td>
                 </tr>
                 <tr>
                     <td>shipping</td>
@@ -177,7 +177,7 @@ function calculateTotalCart(){
                 </tr>
                 <tr>
                     <td><strong>Total</strong></td>
-                    <td><strong>R <?php echo $_SESSION['$total']; ?></strong></td>
+                    <td><strong>R <?php echo $_SESSION['total']; ?></strong></td>
                 </tr>
             </table>
             <form method="POST" action="checkout.php">
