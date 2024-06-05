@@ -1,7 +1,7 @@
 <?php
 session_start();
 include('server/connection.php');
-
+ 
 if (!isset($_SESSION['logged_in'])) {
     header('location: login.php');
     exit;
@@ -22,24 +22,30 @@ if (isset($_POST['change_password'])) {
     $confirmpassword = $_POST['confirmpassword'];
     $user_email = $_SESSION['user_email'];
 
-    if ($password !== $confirmpassword) {
-        header('location: account.php?error=Passwords do not match!');
-    } else if (strlen($password) < 6) {
-        header('location: account.php?error=Password must be at least 6 characters long');
-    } else {
-        // Use password_hash for secure password storage
-        $hashed_password = password_hash($password, PASSWORD_DEFAULT);
-        $stmt = $conn->prepare("UPDATE users SET user_password=? WHERE user_email=?");
-        $stmt->bind_param('ss', $hashed_password, $user_email);
+    //     echo '<pre>';
+    //    var_dump($_SESSION);
+    //     echo '</pre>';
+        
 
-        if ($stmt->execute()) {
-            header('location: account.php?message=Password has been updated successfully!');
+        if ($password !== $confirmpassword) {
+            header('location: account.php?error=Passwords do not match!');
+        } else if (strlen($password) < 6) {
+            header('location: account.php?error=Password must be at least 6 characters long');
         } else {
-            header('location: account.php?error=Could not update password!');
-        }
+            // Use password_hash for secure password storage
+            $hashed_password = password_hash($password, PASSWORD_DEFAULT);
+            $stmt = $conn->prepare("UPDATE users SET user_password=? WHERE user_email=?");
+            $stmt->bind_param('ss', $hashed_password, $user_email);
 
-        $stmt->close();
-    }
+            if ($stmt->execute()) {
+                header('location: account.php?message=Password has been updated successfully!');
+            } else {
+                header('location: account.php?error=Could not update password!');
+            }
+
+            $stmt->close();
+        }
+    
 }
 
 // Get orders

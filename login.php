@@ -26,6 +26,7 @@ if (isset($_POST['login_btn'])) {
             if (password_verify($password, $user_password)) {
                 $_SESSION['user_id'] = $user_id;
                 $_SESSION['user_name'] = $user_name;
+                $_SESSION['user_email'] = $email;
                 $_SESSION['logged_in'] = true;
                 header('location: account.php?message=Logged in successfully!');
             } else {
