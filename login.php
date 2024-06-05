@@ -23,7 +23,7 @@ if (isset($_POST['login_btn'])) {
         if ($stmt->num_rows == 1) {
             $stmt->fetch();
             // Verify the password
-            if (password_verify($password, $user_password)) {
+            if (md5($password) == $user_password) {
                 $_SESSION['user_id'] = $user_id;
                 $_SESSION['user_name'] = $user_name;
                 $_SESSION['user_email'] = $email;
