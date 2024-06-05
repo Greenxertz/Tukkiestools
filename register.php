@@ -3,7 +3,7 @@ session_start();
 
 include('server/connection.php');
 
-if(isset($_SESSION['logged_in'])){
+if (isset($_SESSION['logged_in'])) {
     header('location: account.php');
     exit;
 }
@@ -15,9 +15,9 @@ if (isset($_POST['register'])) {
     $confirmpassword = $_POST['confirm-password'];
 
     if ($password !== $confirmpassword) {
-        header('location: register.php?error=passwords do not match!');
+        header('location: register.php?error=Passwords do not match!');
     } else if (strlen($password) < 6) {
-        header('location: register.php?error=password must be at least 6 characters long');
+        header('location: register.php?error=Password must be at least 6 characters long');
     } else {
         // Check if the user already exists
         $stmt1 = $conn->prepare("SELECT COUNT(*) FROM users WHERE user_email=?");
@@ -41,10 +41,13 @@ if (isset($_POST['register'])) {
                 die('Prepare failed: ' . htmlspecialchars($conn->error));
             }
 
-            $hashed_password = md5($password);
+            // Use password_hash for secure password storage
+            $hashed_password = password_hash($password, PASSWORD_DEFAULT);
             $stmt->bind_param('sss', $name, $email, $hashed_password);
 
             if ($stmt->execute()) {
+                $user_id = $stmt->insert_id;
+                $_SESSION['user_id'] = $user_id;
                 $_SESSION['user_email'] = $email;
                 $_SESSION['user_name'] = $name;
                 $_SESSION['logged_in'] = true;
@@ -56,9 +59,9 @@ if (isset($_POST['register'])) {
             $stmt->close();
         }
     }
-} 
-
+}
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">

@@ -217,6 +217,36 @@ header {
 
 /* displaying products globally  */
 
+aside {
+    float: left;
+    position: sticky;
+    top: 100px; /* Adjust this value as needed */
+    width: 250px; /* Set a fixed width for the aside element */
+    margin-right: 20px; /* Add some margin to the right side */
+    padding: 20px; /* Add padding for better readability */
+    background-color: #9298A6; /* Light background color */
+    border: 1px solid #263F73;
+    border-radius: 40px; /* Light border */
+}
+
+aside p {
+    font-weight: bold; /* Make the paragraph text bold */
+    margin-bottom: 10px; /* Add some space below the paragraph */
+}
+
+aside input[type="radio"] {
+    display: inline-block; /* Display radio buttons inline */
+    vertical-align: middle; /* Align radio buttons vertically */
+    margin-right: 5px; /* Add some space to the right of each radio button */
+}
+
+aside label {
+    display: inline-block; /* Display labels inline */
+    vertical-align: middle; /* Align labels vertically */
+    margin-right: 15px; /* Add some space to the right of each label */
+}
+
+
 #product1 {
     text-align: center;
     background-color: #9298A6;

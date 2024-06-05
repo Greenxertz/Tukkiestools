@@ -10,23 +10,27 @@ if (isset($_SESSION['logged_in'])) {
 
 if (isset($_POST['login_btn'])) {
     $email = $_POST['email'];
-    $password = md5($_POST['password']);
-    
-    $stmt = $conn->prepare("SELECT user_id, user_name, user_password FROM users WHERE user_email = ? AND user_password = ? LIMIT 1");
-    
-    $stmt->bind_param('ss', $email, $password);
+    $password = $_POST['password'];
+
+    // Fetch user details from database
+    $stmt = $conn->prepare("SELECT user_id, user_name, user_password FROM users WHERE user_email = ? LIMIT 1");
+    $stmt->bind_param('s', $email);
 
     if ($stmt->execute()) {
-        // Bind result variables for the selected columns
         $stmt->bind_result($user_id, $user_name, $user_password);
         $stmt->store_result();
 
-        if ($stmt->num_rows() == 1) {
+        if ($stmt->num_rows == 1) {
             $stmt->fetch();
-            $_SESSION['user_id'] = $user_id;
-            $_SESSION['user_name'] = $user_name;
-            $_SESSION['logged_in'] = true;  
-            header('location: account.php?message=logged in successfully!');
+            // Verify the password
+            if (password_verify($password, $user_password)) {
+                $_SESSION['user_id'] = $user_id;
+                $_SESSION['user_name'] = $user_name;
+                $_SESSION['logged_in'] = true;
+                header('location: account.php?message=Logged in successfully!');
+            } else {
+                header('location: login.php?error=Invalid email or password!');
+            }
         } else {
             header('location: login.php?error=Account does not exist!');
         }
@@ -36,8 +40,9 @@ if (isset($_POST['login_btn'])) {
 
     $stmt->close();
 }
-
 ?>
+
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -64,7 +69,8 @@ if (isset($_POST['login_btn'])) {
         </div>
         <div >
             <form id="login-form" action="login.php" method="POST">
-            <span><?php if(isset($_GET['error']))echo $_GET['error'];?></span>    
+            <span><?php if(isset($_GET['error']))echo $_GET['error'];?></span>
+            <span><?php if(isset($_GET['message']))echo $_GET['message'];?></span>        
             <div class="form-group">
                     <label for="login-email">Email</label>
                     <input type="email" class="form-control" id="login-email" name="email" placeholder="Email" required>

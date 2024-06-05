@@ -22,4 +22,3 @@ if($conn === false){
 
 // Close the connection when done
 // mysqli_close($conn);
-// 

@@ -2,16 +2,11 @@
 
 session_start();
 
-// if( !empty($_SESSION['cart']) && isset($_POST['checkout'])) {
-
-//     //let user in 
-
-    
-//     // send user back to previous page
-// } else {
-
-//     header('location: shop.php');
-// }
+if(isset($_POST['order_pay_btn'])) {
+    $order_status = $_POST['order_status'];
+    $order_total_price = $_POST['order_total_price'];
+;
+}
 
 
 
@@ -40,9 +35,25 @@ session_start();
             <hr>
         </div>
         <div>
-        <p><?php echo $_GET['order_status'];?></p>
-        <p>Total amount due: R<?php echo $_SESSION['total']; ?></p>
-        <input class='btn' type="submit" name="" id="" value="Pay Now"/>
+        
+        <?php if(isset($_SESSION['total']) && $_SESSION['total'] != 0) {?>
+
+            <p>Total amount due: R<?php echo $_SESSION['total'] ?></p>
+            <input class='btn' type="submit" value="Pay Now"/>
+         
+        <?php } else if(isset($_POST['order_status']) && $_POST['order_status'] == "not paid" ){ ?>
+
+            <p>Total amount due: R<?php echo $_POST['order_total_price']; ?></p>
+            <input class='btn' type="submit" value="Pay Now"/>
+        <?php } else { ?>
+
+            <p>All payments are done!</p>
+
+        <?php } ?>
+
+
+        
+       
 
         </div>
     </section>

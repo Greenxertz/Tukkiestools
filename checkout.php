@@ -2,7 +2,7 @@
 
 session_start();
 
-if( !empty($_SESSION['cart']) && isset($_POST['checkout'])) {
+if( !empty($_SESSION['cart'])) {
 
     //let user in 
 
@@ -37,7 +37,7 @@ if( !empty($_SESSION['cart']) && isset($_POST['checkout'])) {
         </div>
 
         <div>
-            <form method="POST" action="server/place_order.php">
+            <form method="POST" action="server/place_order.php">            
                 <div>
                     <label>Name</label>
                     <input type="text" class="" name="name" id="checkout-name" placeholder="Name" required>

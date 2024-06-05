@@ -156,13 +156,6 @@ function calculateTotalCart(){
      </section>
 
      <section id="cart-add" class="section-p1">
-        <div id="coupon">
-            <h3>Apply Coupons</h3>
-            <div>
-                <input type="text" name="" id="" placeholder="Enter Coupon">
-                <button class="btn">Apply</button>   
-            </div>
-        </div>
 
         <div id="subtotal">
             <h3>Cart Total</h3>

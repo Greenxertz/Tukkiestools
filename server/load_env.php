@@ -1,4 +1,4 @@
-<?php
+ <?php
 function load_env($file) {
     if (!file_exists($file)) {
         throw new Exception("Environment file not found.");
@@ -20,4 +20,4 @@ function load_env($file) {
             $_SERVER[$name] = $value;
         }
     }
-}
+} 
