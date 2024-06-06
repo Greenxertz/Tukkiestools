@@ -40,7 +40,15 @@ p {
 }
 
 body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
     width: 100%;
+}
+
+.tab {
+    display: inline-block;
+    margin-left: 40px;
 }
 
 .section-p1 {
@@ -217,6 +225,10 @@ header {
 
 /* displaying products globally  */
 
+.searchbar {
+    display: left;
+}
+
 aside {
     float: left;
     position: sticky;
@@ -226,7 +238,8 @@ aside {
     padding: 20px; /* Add padding for better readability */
     background-color: #9298A6; /* Light background color */
     border: 1px solid #263F73;
-    border-radius: 40px; /* Light border */
+    border-radius: 40px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add a subtle shadow for better separation */
 }
 
 aside p {
@@ -237,13 +250,40 @@ aside p {
 aside input[type="radio"] {
     display: inline-block; /* Display radio buttons inline */
     vertical-align: middle; /* Align radio buttons vertically */
-    margin-right: 5px; /* Add some space to the right of each radio button */
+    margin-right: 15px; /* Add some space to the right of each radio button */
 }
 
 aside label {
     display: inline-block; /* Display labels inline */
     vertical-align: middle; /* Align labels vertically */
     margin-right: 15px; /* Add some space to the right of each label */
+}
+
+aside input[type="range"] {
+    width: 100%; /* Make the range input take the full width */
+    margin-top: 10px; /* Add some margin at the top */
+}
+
+aside .pricerange {
+    display: flex;
+    justify-content: space-between;
+}
+
+.searchbar {
+    text-align: left;
+    padding: 20px;
+}
+
+.searchbar input[type="radio"] {
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 5px; /* Space between radio button and label */
+}
+
+.searchbar label {
+    display: inline-block;
+    vertical-align: middle;
+    cursor: pointer; /* Make label clickable */
 }
 
 
@@ -622,8 +662,9 @@ footer .copyright {
 
 .pro-single-product{
     width: 40%;
-    display: flex;
-    /* margin-right: 50px; */
+     display: flex;
+     gap: 20px;
+  
 }
 
 #mainimg {
@@ -637,6 +678,14 @@ footer .copyright {
 .image-gallery {
     flex: 1; /* Grow to fill available space */
     margin-right: 20px; /* Add spacing between image gallery and details section */
+}
+
+.details-section {
+    flex: 1;
+}
+
+.details-section button {
+    margin: 5px;
 }
 
 #smllimg {
@@ -654,9 +703,9 @@ footer .copyright {
 }
 
 .small-img-col {
-    flex-basis: 28%; /* Set the initial size of each item */
+    flex:1 1 22%; /* Set the initial size of each item */
     cursor: pointer;
-    margin: 3px;  /* Add some bottom margin between the items */    
+    margin: 0 3px;  /* Add some bottom margin between the items */    
 }
 
 .small-img-col img {
@@ -710,6 +759,7 @@ footer .copyright {
 }
 
 /* shop page */
+
 
 #shoppage-header {
     background-image: url(../images/website-assets/mechanic2.jpg);
@@ -1079,9 +1129,11 @@ font-size: 14px;
     background-blend-mode: overlay;
 }
 
-#login-form, 
+#login-form,
+#payment-form,
+#checkout-form,
 #register-form {
-    width: 20%;
+    width: 40%;
     margin: 20px auto;
     text-align: center;
     padding: 20px;
@@ -1091,6 +1143,13 @@ font-size: 14px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
+
+.form-group label {
+    width: 80%;
+    text-align: left;
+}
+
+
 .form-group {
     display: flex;
     flex-direction: column;
@@ -1099,7 +1158,16 @@ font-size: 14px;
     position: relative;
 }
 
+
+
+#payment-form p{
+    text-decoration-line: underline;
+    color: #263F73;
+    
+}
+
 #login-form input,
+#checkout-form input,
 #register-form input {
     width: 80%;
     margin: 5px auto;

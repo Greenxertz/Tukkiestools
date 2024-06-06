@@ -63,6 +63,23 @@
     #feature {
         justify-content: center;      
     }
+
+    aside {
+        position: static; /* Remove sticky positioning */
+        float: none; /* Remove float */
+        margin:  auto; /* Center the aside */
+        width: 80%; /* Set the width */
+      }
+    
+    
+   
+    
+    .pro-single-product{
+        width: 40%;
+        display: inline;
+         gap: 20px;
+      
+    }
   
     #feature .fe-box {
         margin: 15px 15px;

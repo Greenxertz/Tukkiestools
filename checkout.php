@@ -26,39 +26,43 @@ if( !empty($_SESSION['cart'])) {
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" /> 
     <link rel="stylesheet" href="assets/css/main.css">
     <link rel="stylesheet" href="assets/css/mediaqueries.css">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/images/website-assets/favicon_io/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/images/website-assets/favicon_io/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/images/website-assets/favicon_io/favicon-16x16.png">
+    <link rel="manifest" href="assets/images/website-assets/favicon_io/site.webmanifest">
     
 </head>
 <body>
     <header></header>
-    <section>
-        <div>
+    <section >
+        <div class="user-container">
             <h2>Check Out</h2>
             <hr>
         </div>
 
-        <div>
+        <div id="checkout-form">
             <form method="POST" action="server/place_order.php">            
-                <div>
+                <div class="form-group">
                     <label>Name</label>
                     <input type="text" class="" name="name" id="checkout-name" placeholder="Name" required>
                 </div>
-                <div>
+                <div class="form-group">
                     <label>Email</label>
                     <input type="text" class="" name="email" id="checkout-email" placeholder="Email" required>
                 </div>
-                <div>
+                <div class="form-group">
                     <label>Phone</label>
                     <input type="tel" class="" name="phone" id="checkout-phone" placeholder="Phone" required>
                 </div>
-                <div>
+                <div class="form-group">
                     <label>City</label>
                     <input type="text" class="" name="city" id="checkout-city" placeholder="City" required>
                 </div>
-                <div>
+                <div class="form-group">
                     <label>Address</label>
                     <input type="text" class="" name="address" id="checkout-address" placeholder="Address" required>
                 </div>
-                <p>Total amount: R <?php echo $_SESSION['total']?></p>
+                <p style="color: red;">Total amount: R <?php echo $_SESSION['total']?></p>
                 <input type="submit" class="btn" name="place_order" id="checkout-btn" value="Place Order"/>
 
             </form>

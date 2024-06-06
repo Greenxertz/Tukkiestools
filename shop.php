@@ -56,6 +56,11 @@ if(isset($_POST['category']) && $_POST['category'] != 'All') {
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" /> 
     <link rel="stylesheet" href="assets/css/main.css">
     <link rel="stylesheet" href="assets/css/mediaqueries.css">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/images/website-assets/favicon_io/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/images/website-assets/favicon_io/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/images/website-assets/favicon_io/favicon-16x16.png">
+    <link rel="manifest" href="assets/images/website-assets/favicon_io/site.webmanifest">
+
 
 
     
@@ -75,59 +80,62 @@ if(isset($_POST['category']) && $_POST['category'] != 'All') {
                 <div>
                     <div>
                         <p>Category</p>
-                        <div>
-                            <input type="radio" name="category" id="category_1" value="All" <?php if(isset($category) && $category== 'All'){echo 'checked';}?>>
-                            <label for="">All Items</label>   
-                        </div>
-                        <div>
-                            <input type="radio" name="category" id="category_1" value="electronics" <?php if(isset($category) && $category== 'electronics'){echo 'checked';}?>>
-                            <label for="">Electronics</label>    
-                        </div>
+                        <div class="searchbar">
+                            <div>
+                                <input type="radio" name="category" id="category_all" value="All" <?php if(isset($category) && $category== 'All'){echo 'checked';}?>>
+                                <label for="category_all">All Items</label>   
+                            </div>
+                            <div>
+                                <input type="radio" name="category" id="category_electronics" value="electronics" <?php if(isset($category) && $category== 'electronics'){echo 'checked';}?>>
+                                <label for="category_electronics">Electronics</label>    
+                            </div>
 
-                        <div>
-                            <input type="radio" name="category" id="category_1" value="art" <?php if(isset($category) && $category== 'art'){echo 'checked';}?>>
-                            <label for="">Art</label>   
-                        </div>
-                        
-                        <div>
-                            <input type="radio" name="category" id="category_1" value="tools" <?php if(isset($category) && $category== 'tools'){echo 'checked';}?>>
-                            <label for="">Tools</label>   
+                            <div>
+                                <input type="radio" name="category" id="category_art" value="art" <?php if(isset($category) && $category== 'art'){echo 'checked';}?>>
+                                <label for="category_art">Art</label>   
+                            </div>
+                            
+                            <div>
+                                <input type="radio" name="category" id="category_tools" value="tools" <?php if(isset($category) && $category== 'tools'){echo 'checked';}?>>
+                                <label for="category_tools">Tools</label>   
+                            </div>
                         </div>
                     </div>
                 </div>
 
                 <div>
                     <div>
-                        <p>Price Range:</p>
-                        <input type="range" name="price" value="<?php if(isset($price)) { echo $price; } else { echo "200"; } ?>" min="1" max="10000" id="">
-                        <div>
-                            <span>R 1</span>
-                            <span>R 10000</span>
-                        </div>
+                    <p>Price Range:</p>
+                    <input type="range" name="price" value="<?php echo isset($price) ? $price : '500'; ?>" min="1" max="1000" id="priceRange" oninput="updateRangeValue(this.value)">
+                    <div class="pricerange">
+                        <span>R 1</span>
+                        <span style="color: white;"id="currentPrice">R <?php echo isset($price) ? $price : '500'; ?></span>
+                        <span>R 1000</span>
+                    </div>
                     </div>
                 </div>
 
                 <input type="submit" name="search" value="Search" class="btn" >
-
             </form>
         </aside>
-
         <div class="pro-container">
-
-            <?php while($row = $all_products->fetch_assoc()){ ?>
-                
-                
-                <div class="pro" onclick="window.location.href='<?php echo "sproduct.php?product_id=". $row['product_id'];?>';">
-                   <img src="assets/images/Shop-images/<?php echo $row['product_category']; ?>/<?php echo $row['product_image']; ?>" alt="<?php echo $row['product_name']; ?>">
-                   <div class="des">
-                        <span><?php echo $row['product_category']; ?></span>
-                        <h5><?php echo $row['product_name']; ?></h5>
-                        <h4>R <?php echo $row['product_price']; ?> </h4>
-                   </div>
-                    <a href="#"><i class="fal fa-shopping-cart cart"></i></a>
+            <?php if($all_products->num_rows > 0) { ?>
+                <?php while($row = $all_products->fetch_assoc()) { ?>
+                    <div class="pro" onclick="window.location.href='<?php echo "sproduct.php?product_id=". $row['product_id'];?>';">
+                        <img src="assets/images/Shop-images/<?php echo $row['product_category']; ?>/<?php echo $row['product_image']; ?>" alt="<?php echo $row['product_name']; ?>">
+                        <div class="des">
+                            <span><?php echo $row['product_category']; ?></span>
+                            <h5><?php echo $row['product_name']; ?></h5>
+                            <h4>R <?php echo $row['product_price']; ?></h4>
+                        </div>
+                        <a href="#"><i class="fal fa-shopping-cart cart"></i></a>
+                    </div>
+                <?php } ?>
+            <?php } else { ?>
+                <div class="no-products">
+                    <p>No products found matching your criteria.</p>
                 </div>
             <?php } ?>
-
         </div>
     </section>
 
@@ -165,6 +173,17 @@ if(isset($_POST['category']) && $_POST['category'] != 'All') {
 
     <footer></footer>
 
+    <script>
+        function updateRangeValue(value) {
+            document.getElementById('currentPrice').innerText = 'R ' + value;
+        }
+            document.getElementById('priceRange').addEventListener('input', function() {
+             updateRangeValue(this.value);
+        });
+        function updateRangeValue(value) {
+            document.getElementById('rangeValue').textContent = value;
+        }
+    </script>
     <script src="assets/js/header-footer.js"></script>
     <script src="assets/js/navbar.js"></script>
     
