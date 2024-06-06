@@ -59,46 +59,48 @@ if (isset($_GET['product_id'])) {
    <?php while($row = $product ->fetch_assoc()) { ?>
 
          <section id="prodetails" class="section-p1">
-             <div class="pro-single-product">
-
-                 <img src="assets/images/Shop-images/<?php echo $row['product_category']; ?>/<?php echo $row['product_image']; ?>" width="100%" id="mainimg" alt="<?php echo $row['product_name']; ?>">           
-                <div class="small-img-group">
-                    <div class="small-img-col">
-                        <img src="assets/images/Shop-images/<?php echo $row['product_category']; ?>/<?php echo $row['product_image']; ?>" width="100%" id="smllimg" alt="<?php echo $row['product_name']; ?>">                
+            <div class="pro-single-product ">
+                <img src="assets/images/Shop-images/<?php echo $row['product_category']; ?>/<?php echo $row['product_image']; ?>" width="100%" id="mainimg" alt="<?php echo $row['product_name']; ?>">           
+                <div class="image-gallery">
+                    <div class="small-img-group">
+                        <div class="small-img-col">
+                            <img src="assets/images/Shop-images/<?php echo $row['product_category']; ?>/<?php echo $row['product_image']; ?>" width="100%" id="smllimg" alt="<?php echo $row['product_name']; ?>">                
+                        </div>
+                        <div class="small-img-col">
+                            <img src="assets/images/Shop-images/<?php echo $row['product_category']; ?>/<?php echo $row['product_image2']; ?>" width="100%" id="smllnimg" alt="<?php echo $row['product_name']; ?>">                
+                        </div>
+                        <div class="small-img-col">
+                            <img src="assets/images/Shop-images/<?php echo $row['product_category']; ?>/<?php echo $row['product_image3']; ?>" width="100%" id="smllnimg" alt="<?php echo $row['product_name']; ?>">                
+                        </div>
+                        <div class="small-img-col">
+                            <img src="assets/images/Shop-images/<?php echo $row['product_category']; ?>/<?php echo $row['product_image4']; ?>" width="100%" id="smllnimg" alt="<?php echo $row['product_name']; ?>">                 
+                        </div>
                     </div>
-                    <div class="small-img-col">
-                        <img src="assets/images/Shop-images/<?php echo $row['product_category']; ?>/<?php echo $row['product_image2']; ?>" width="100%" id="smllnimg" alt="<?php echo $row['product_name']; ?>">                
-                    </div>
-                    <div class="small-img-col">
-                        <img src="assets/images/Shop-images/<?php echo $row['product_category']; ?>/<?php echo $row['product_image3']; ?>" width="100%" id="smllnimg" alt="<?php echo $row['product_name']; ?>">                
-                    </div>
-                    <div class="small-img-col">
-                        <img src="assets/images/Shop-images/<?php echo $row['product_category']; ?>/<?php echo $row['product_image4']; ?>" width="100%" id="smllnimg" alt="<?php echo $row['product_name']; ?>">                 
-                    </div>
-                </div>            
+                </div>
+                            
               
-              
-                 <div class="single-pro-details">
-                     <h6> </h6>
-                     <h4><?php echo $row['product_category']; ?></h4>
-                     <h2><?php echo $row['product_name'];?></h2>
-                     <h4>Price: R <?php echo $row['product_price']; ?></h4>
-                     <span><?php echo $row['product_description']; ?></span>
-                     
-                     <form method="POST" action="cart.php">
-                        <input type="hidden" name="product_id" value="<?php echo $row['product_id']; ?>">
-                        <input type="hidden" name="product_image" value="<?php echo $row['product_image']; ?>">
-                        <input type="hidden" name="product_name" value="<?php echo $row['product_name']; ?>">
-                        <input type="hidden" name="product_price" value="<?php echo $row['product_price']; ?>">
-                        <input type="hidden" name="product_category" value="<?php echo $row['product_category']; ?>">
+                <div class="details-section">
+                    <div class="single-pro-details">
+                        <h6> </h6>
+                        <h4><?php echo $row['product_category']; ?></h4>
+                        <h2><?php echo $row['product_name'];?></h2>
+                        <h3><?php echo $row['product_description'];?></h3>
+                        <h4>Price: R <?php echo $row['product_price']; ?></h4>
+                        <span><?php echo $row['product_description']; ?></span>
+                        
+                        <form method="POST" action="cart.php">
+                            <input type="hidden" name="product_id" value="<?php echo $row['product_id']; ?>">
+                            <input type="hidden" name="product_image" value="<?php echo $row['product_image']; ?>">
+                            <input type="hidden" name="product_name" value="<?php echo $row['product_name']; ?>">
+                            <input type="hidden" name="product_price" value="<?php echo $row['product_price']; ?>">
+                            <input type="hidden" name="product_category" value="<?php echo $row['product_category']; ?>">
 
-                        <input type="number" name="product_quantity" value="1">
-                        <button class="btn" type="submit" name="add_to_cart">Add to cart</button>
-                     </form>
-                     
-                     
+                            <input type="number" name="product_quantity" value="1">
+                            <button class="btn" type="submit" name="add_to_cart">Add to cart</button>
+                        </form>                   
+                    </div> 
                  </div>
-             </div>
+            </div>
 
              
          </section>

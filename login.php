@@ -10,7 +10,7 @@ if (isset($_SESSION['logged_in'])) {
 
 if (isset($_POST['login_btn'])) {
     $email = $_POST['email'];
-    $password = $_POST['password'];
+    $password = md5($_POST['password']);
 
     // Fetch user details from database
     $stmt = $conn->prepare("SELECT user_id, user_name, user_password FROM users WHERE user_email = ? LIMIT 1");
@@ -19,11 +19,13 @@ if (isset($_POST['login_btn'])) {
     if ($stmt->execute()) {
         $stmt->bind_result($user_id, $user_name, $user_password);
         $stmt->store_result();
+        
 
         if ($stmt->num_rows == 1) {
-            $stmt->fetch();
-            // Verify the password
-            if (md5($password) == $user_password) {
+            $stmt->fetch();  
+            // Verify the password          
+            if ($password == $user_password) {
+                
                 $_SESSION['user_id'] = $user_id;
                 $_SESSION['user_name'] = $user_name;
                 $_SESSION['user_email'] = $email;

@@ -33,7 +33,7 @@ if (isset($_POST['change_password'])) {
             header('location: account.php?error=Password must be at least 6 characters long');
         } else {
             // Use password_hash for secure password storage
-            $hashed_password = password_hash($password, PASSWORD_DEFAULT);
+            $hashed_password = md5($password);
             $stmt = $conn->prepare("UPDATE users SET user_password=? WHERE user_email=?");
             $stmt->bind_param('ss', $hashed_password, $user_email);
 

@@ -109,6 +109,11 @@
     #login-form {
         width: 60%;
     }
+
+    #cart table th, #cart table td {
+        padding: 5px;
+        font-size: 14px;
+    }
 }
 
 @media  (max-width: 477px) {

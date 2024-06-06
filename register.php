@@ -42,7 +42,7 @@ if (isset($_POST['register'])) {
             }
 
             // Use password_hash for secure password storage
-            $hashed_password = password_hash($password, PASSWORD_DEFAULT);
+            $hashed_password = md5($password);
             $stmt->bind_param('sss', $name, $email, $hashed_password);
 
             if ($stmt->execute()) {

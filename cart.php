@@ -1,7 +1,22 @@
 <?php 
 session_start();
 
-if(isset($_POST['add_to_cart'])){
+function calculateTotalCart(){
+    $total = 0;
+    if(isset($_SESSION['cart']) && is_array($_SESSION['cart'])) {
+        foreach($_SESSION['cart'] as $key => $value) {
+            $price = $value['product_price'];
+            $quantity = $value['product_quantity'];
+            $total += ($price * $quantity);
+        }
+    }
+    $_SESSION['total'] = $total;
+}
+if(!isset($_POST['add_to_cart'])){
+    $_SESSION['cart'] = array();
+    calculateTotalCart();
+    
+}elseif(isset($_POST['add_to_cart'])){
 
     // if user added an item previously
     if(isset($_SESSION['cart'])){
@@ -44,7 +59,7 @@ if(isset($_POST['add_to_cart'])){
     //update total
     calculateTotalCart();
 
-    //Remove items froim cart
+    //Remove items from cart
 } elseif (isset($_POST['remove_product'])) {
     
     $product_id = $_POST['product_id'];
@@ -68,22 +83,6 @@ if(isset($_POST['add_to_cart'])){
     calculateTotalCart();
 } 
 
-
-function calculateTotalCart(){
-
-    $total=0;
-
-    foreach( $_SESSION['cart'] as $key => $value){
-
-        $product = $_SESSION['cart'][$key];
-
-        $price = $product['product_price'];
-        $quantity = $product['product_quantity'];
-
-        $total = $total + ($price *  $quantity);
-    }
-    $_SESSION['total'] = $total;
-}
 
 ?>
 
@@ -130,7 +129,7 @@ function calculateTotalCart(){
                                 <p><?php echo  $value['product_name'];?></p>
                                 <small><span>R</span><?php echo  $value['product_price'];?></small>
                                 <br>
-                                <form method="POST" action="cart.php">
+                                <form method="POST" action="cart.php" name="cart-form">
                                     <input type="hidden" name="product_id" value="<?php echo  $value['product_id'];?>">
                                     <input type="submit" name="remove_product" class="btn" value="Remove"/>
                                 </form>
@@ -140,7 +139,7 @@ function calculateTotalCart(){
                     <td>
                         <form method="POST" action="cart.php">
                             <input type="hidden" name="product_id" value="<?php echo  $value['product_id'];?>"/>
-                            <input type="number" name="product_quantity" value="<?php echo  $value['product_quantity'];?>"/>
+                            <input type="number" name="product_quantity" value="<?php echo  $value['product_quantity'];?>" min="1"/>
                             <input type="submit" class="btn" value="Edit" name="edit_quantity"/>
                         </form>
                     </td>              
@@ -181,6 +180,20 @@ function calculateTotalCart(){
      </section>
 
 <footer></footer>
+
+
+<script>
+    function validateQuantityInput(event) {
+        var input = event.target.querySelector('input[name="product_quantity"]');
+        if (input.value === '' || input.value <= 0) {
+            alert('Please enter a valid quantity.');
+            event.preventDefault();
+        }
+    }
+    document.querySelectorAll('form[name="cart-form"]').forEach(function(form) {
+        form.addEventListener('submit', validateQuantityInput);
+    });
+</script>
 
 <script src="assets/js/header-footer.js"></script>
 <script src="assets/js/navbar.js"></script>
