@@ -65,24 +65,28 @@
     }
 
     aside {
-        position: static; /* Remove sticky positioning */
+        position: static; 
         float: none; /* Remove float */
         margin:  auto; /* Center the aside */
         width: 80%; /* Set the width */
-      }
-    
-    
+        padding: 20px; /* Add padding if needed */
+
+    }
    
     
     .pro-single-product{
         width: 40%;
         display: inline;
-         gap: 20px;
+        gap: 20px;
       
     }
   
     #feature .fe-box {
         margin: 15px 15px;
+    }
+
+    #product1{
+        display:grid;
     }
 
     #product1 .pro-container {
