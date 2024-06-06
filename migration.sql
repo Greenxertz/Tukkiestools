@@ -47,7 +47,9 @@ CREATE TABLE IF NOT EXISTS `users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 ALTER TABLE `order_items` ADD `product_price` DECIMAL(6,2) NOT NULL AFTER `product_image`, ADD `product_quantity` INT NOT NULL AFTER `product_price`;
+ALTER TABLE `order_items` ADD `product_category` VARCHAR(100) NOT NULL AFTER `product_image`;
 ALTER TABLE `products` ADD `products_date_added` DATE NOT NULL DEFAULT CURRENT_TIMESTAMP AFTER `product_color`;
+
 
 -- populates the database
 -- Insert data into the 'users' table
