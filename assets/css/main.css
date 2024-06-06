@@ -1214,5 +1214,116 @@ font-size: 14px;
     text-decoration: underline;  
 }
 
+#orders-details {
+    display:flexbox;
+}
+
+#orders-details table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+    background-color: #263F73;
+ 
+}
+
+#orders-details th, #orders-details td {
+    border: 1px solid #1C3659;
+    padding: 10px;
+    text-align: left;  }
+
+#orders-details th {
+    background-color: #d2d7da;
+}
+
+#orders-details td{
+    text-decoration: underline #ffffff;
+}
+
+#orders-details img {
+    width: 10rem;
+    height: 10rem;
+    display: block;
+    margin: auto;
+}
+
+#orders-details td img {
+    float: left;
+    margin-right: 10px;
+}
+
+#orders-details td div {
+    display: inline-block;
+    vertical-align: top;
+}
+
+#orders-details td:nth-child(2),
+#orders-details th:nth-child(2) {
+    width: 120px; /* Adjust the width as needed */
+}
+
+.btn {
+    margin: auto;
+    padding: auto;
+    cursor: pointer;
+}
+
+.btn-container {
+    display: flex;
+    justify-content: center;
+    margin: 20px;
+}
 
 
+/* accounts page */
+.account-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch; /* Ensure equal height */
+}
+
+.account-info, 
+.change-password {
+    width: 48%;
+    display: flex;
+    flex-direction: column; /* Make the elements inside stack vertically */
+    justify-content: space-between; /* Space elements evenly */
+    padding: 20px;
+}
+
+.change-password label {
+    margin-bottom: 10px; /* Add margin below the label */
+}
+
+.account-info h3, .change-password h3 {
+    margin-top: 0;
+}
+
+.account-info,
+.change-password {
+    width: 48%;
+}
+#orders table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+#orders th,
+#orders td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: center;
+}
+
+#orders th {
+    background-color: #f2f2f2;
+}
+
+#orders td div {
+    display: inline-block;
+    vertical-align: top;
+}
+
+#orders td:nth-child(3) {
+    width: 120px;
+}

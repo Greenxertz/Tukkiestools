@@ -52,7 +52,7 @@ if(!isset($_SESSION['logged_in'])) {
                 $product_price = $product['product_price'];
                 $product_quantity = $product['product_quantity'];
 
-                $stmt1 = $conn->prepare("INSERT INTO order_items (order_id, product_id, product_name, product_image,product_category, product_price, product_quantity, user_id, order_date) 
+                $stmt1 = $conn->prepare("INSERT INTO order_items (order_id, product_id, product_name, product_image, product_category, product_price, product_quantity, user_id, order_date) 
                             VALUES (?,?,?,?,?,?,?,?,?);"); 
 
                 $stmt1->bind_param('iisssiiis', $order_id, $product_id, $product_name, $product_image, $product_category, $product_price, $product_quantity, $user_id,  $order_date);
@@ -60,15 +60,10 @@ if(!isset($_SESSION['logged_in'])) {
                 $stmt1->execute();
             }
 
+             // clear cart --> delay till payment done
+            unset($_SESSION['cart']);
+            header('location: ../payment.php?order_status=order placed successfully'); 
         }
-
-
-
-
-        // clear cart --> delay till payment done
-        // unset($_SESSION['cart']);
-
-        //inform user of any issue
-        header('location: ../payment.php?order_status=order placed successfully'); 
+       
     }
 }

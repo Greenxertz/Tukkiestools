@@ -2,15 +2,11 @@
 
 session_start();
 
-unset($_SESSION['cart']);
 if(isset($_POST['order_pay_btn'])) {
     $order_status = $_POST['order_status'];
     $order_total_price = $_POST['order_total_price'];
 ;
 }
-
-
-
 ?>
 
 
@@ -42,11 +38,13 @@ if(isset($_POST['order_pay_btn'])) {
             <?php if(isset($_SESSION['total']) && $_SESSION['total'] != 0) {?>
 
                 <p>Total amount due: R<?php echo $_SESSION['total'] ?></p>
+                <p>You can continue to browse and pay later via cart if you'd like.</p>
                 <input class='btn' type="submit" value="Pay Now"/>
             
             <?php } else if(isset($_POST['order_status']) && $_POST['order_status'] == "not paid" ){ ?>
 
                 <p>Total amount due: R<?php echo $_POST['order_total_price']; ?></p>
+                <p>You can continue to browse and pay later via cart if you'd like.</p>
                 <input class='btn' type="submit" value="Pay Now"/>
             <?php } else { ?>
 

@@ -51,7 +51,7 @@ if (isset($_POST['change_password'])) {
 // Get orders
 if (isset($_SESSION['logged_in'])) {
     $user_id = $_SESSION['user_id'];
-    $stmt = $conn->prepare("SELECT * FROM orders WHERE user_id=?");
+    $stmt = $conn->prepare("SELECT * FROM orders WHERE user_id=? ORDER BY order_date DESC");
     $stmt->bind_param('i', $user_id);
     $stmt->execute();
     $orders = $stmt->get_result();
@@ -80,82 +80,71 @@ if (isset($_SESSION['logged_in'])) {
 <body >
     <header></header>
 
-    <section>
-    <div>
-        <div>
-            <h3></h3>
+    <section class="account-container">
+        <div class="account-info">
+            <h3>Account Information</h3>
             <hr>
-            <div>
-                <p>Name: <span><?php if(isset($_SESSION['user_name'])){echo $_SESSION['user_name'];}?></span></p>
-                <p>Email: <span><?php if(isset($_SESSION['user_email'])){echo $_SESSION['user_email'];}?></span></p>
-                <p><a href="#orders" class="btn">Track your orders</a></p>
-                <p><a href="account.php?logout=1" class="btn">Logout</a></p>
-            </div>
+            <p style="color:black">Name: <span><?php if (isset($_SESSION['user_name'])) { echo $_SESSION['user_name']; } ?></span></p>
+            <p style="color:black">Email: <span><?php if (isset($_SESSION['user_email'])) { echo $_SESSION['user_email']; } ?></span></p>
+            <p><a href="#orders" class="btn">Track your orders</a></p>
+            <p><a href="account.php?logout=1" class="btn">Logout</a></p>
         </div>
-    </div>
 
+        <div class="change-password">
+            <form action="account.php" method="POST">
+                <h3>Change password</h3>
+                <hr>
+                <div>
+                    <label>Password</label>
+                    <input type="password" name="password" id="account-password" placeholder="new password" required>
+                </div>
 
-    <div>
-        <form action="account.php" method="POST">
-            <p><?php if(isset($_GET['error'])){ echo $_GET['error'];} ?></p>
-            <p><?php if(isset($_GET['message'])){ echo $_GET['message'];} ?></p>
+                <div>
+                    <label>Confirm Password</label>
+                    <input type="password" name="confirmpassword" id="account-password-confirm" placeholder="Confirm new password" required>
+                </div>
+                <div class="btn-container">
+                    <input type="submit" name="change_password" class="btn" id="change_pass_btn">
+                </div>
+            </form>
+            <p style="color:black"><?php if (isset($_GET['error'])) { echo $_GET['error']; } ?></p>
+            <p style="color:black"><?php if (isset($_GET['message'])) { echo $_GET['message']; } ?></p>
 
-            <h3>Change password</h3>
-            <hr>
-            <div>
-                <label>Password</label>
-                <input type="password" name="password" id="account-password" placeholder="new password" required>
-            </div>
-
-            <div>
-                <label>Confirm Password</label>
-                <input type="password" name="confirmpassword" id="account-password-confirm" placeholder="Confirm new password" required>
-            </div>
-            <div>
-                <input type="submit" name="change_password" class="btn" id="change_pass_btn">
-            </div>
-        </form>
-    </div>
-
-    </section>
-    <section>
-        <div>
-            <h2>oonononon</h2>
-            <hr>
         </div>
+        
     </section>
 
     <section id="orders">
+        <div>
+            <h2>Keep track of your orders</h2>
+            <hr>
+        </div>
+
         <table>
             <tr>
-                <th>Order Item</th>
                 <th>Order ID</th>
-                <th>Order Cost</th>
+                <th>Order Cost (R)</th>
                 <th>Order Status</th>
                 <th>Order Date</th>
                 <th>Order Info</th>
             </tr>
 
-            <?php while($row = $orders->fetch_assoc()) {?>
+            <?php while ($row = $orders->fetch_assoc()) { ?>
                 <tr>
                     <td>
-                         <!-- <img src="assets/images/Shop-images/<?php echo $row['product_category']; ?>/<?php echo $row['product_image']; ?>" alt="<?php echo $row['product_name']; ?>"> -->
+                        <p style="color: black"><?php echo $row['order_id'] ?></p>
                     </td>
 
                     <td>
-                        <p><?php echo $row['order_id'] ?></p>
+                        <p style="color: black"><?php echo $row['order_cost'] ?></p>
                     </td>
 
-                    <td>                       
-                        <p><?php echo $row['order_cost'] ?></p>
+                    <td>
+                    <p style="color: <?php echo ($row['order_status'] == 'not paid') ? 'red' : (($row['order_status'] == 'delivered') ? 'green' : ''); ?>"><?php echo $row['order_status']; ?></p>
                     </td>
 
-                    <td>                       
-                        <p><?php echo $row['order_status'] ?></p>
-                    </td>
-
-                    <td>                       
-                        <p><?php echo $row['order_date'] ?></p>
+                    <td>
+                        <p style="color: black" ><?php echo $row['order_date'] ?></p>
                     </td>
 
                     <td>
@@ -166,14 +155,16 @@ if (isset($_SESSION['logged_in'])) {
                         </form>
                     </td>
                 </tr>
-            <?php }?>
+            <?php } ?>
         </table>
     </section>
 
     <footer></footer>
+
+  
+
     <script src="assets/js/header-footer.js"></script>
     <script src="assets/js/navbar.js"></script>
-    
-</body>
 
+    </body>
 </html> 

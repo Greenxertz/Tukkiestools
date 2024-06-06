@@ -25,7 +25,6 @@
         right: 0;
     }
 
-
     #navbar li{
         margin-bottom: 25px;
     }
@@ -73,6 +72,12 @@
 
     }
    
+    #login-form,
+    #payment-form,
+    #checkout-form,
+    #register-form {
+        width: 80%;
+    }
     
     .pro-single-product{
         width: 40%;
@@ -97,6 +102,9 @@
         margin: 15px;
     }
 
+    #page-header{
+        height: 20rem;
+    }
     #banner {
         height: 20vh;
     }
@@ -135,6 +143,29 @@
         padding: 5px;
         font-size: 14px;
     }
+
+    .account-container {
+        flex-direction: column; /* Stack items vertically */
+        align-items: stretch; /* Remove equal height alignment */
+    }
+
+    .account-info,
+    .change-password {
+        width: 100%; /* Full width for both sections */
+    }
+
+    #orders td form {
+        display: flex;
+        justify-content: center;
+        margin: 10px 0;
+    }
+
+    #orders .btn {
+        font-size: 10px; /* Smaller font size for small screens */
+        padding: 4px 8px; /* Adjust padding for small screens */
+    }
+   
+
 }
 
 @media  (max-width: 477px) {
