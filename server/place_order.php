@@ -10,6 +10,7 @@ if(!isset($_SESSION['logged_in'])) {
     
 } else {
 
+    // check if the checkout board was completed 
     if (isset($_POST['place_order'])) {
 
         // Ensure user_id is set in the session
@@ -18,8 +19,8 @@ if(!isset($_SESSION['logged_in'])) {
         }
 
         //get user details and store it 
-        $name = $_POST['name'];
-        $email = $_POST['email'];
+        $name = $_SESSION['user_name'];
+        $email = $_SESSION['user_email'];
         $phone = $_POST['phone'];
         $city = $_POST['city'];
         $address = $_POST['address'];
@@ -59,7 +60,6 @@ if(!isset($_SESSION['logged_in'])) {
             
                 $stmt1->execute();
             }
-
              // clear cart --> delay till payment done
             unset($_SESSION['cart']);
             header('location: ../payment.php?order_status=order placed successfully'); 

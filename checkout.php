@@ -43,23 +43,23 @@ if( !empty($_SESSION['cart'])) {
         <div id="checkout-form">
             <form method="POST" action="server/place_order.php">            
                 <div class="form-group">
-                    <label>Name</label>
-                    <input type="text" class="" name="name" id="checkout-name" placeholder="Name" required>
+                    <label>Name:</label>
+                    <label style="text-decoration: underline;"><?php echo $_SESSION['user_name']?></label>
                 </div>
                 <div class="form-group">
-                    <label>Email</label>
-                    <input type="text" class="" name="email" id="checkout-email" placeholder="Email" required>
+                    <label>Email:</label>
+                    <label style="text-decoration: underline;"><?php echo $_SESSION['user_email']?></label>
                 </div>
                 <div class="form-group">
-                    <label>Phone</label>
+                    <label>Phone:</label>
                     <input type="tel" class="" name="phone" id="checkout-phone" placeholder="Phone" required>
                 </div>
                 <div class="form-group">
-                    <label>City</label>
+                    <label>City:</label>
                     <input type="text" class="" name="city" id="checkout-city" placeholder="City" required>
                 </div>
                 <div class="form-group">
-                    <label>Address</label>
+                    <label>Address:</label>
                     <input type="text" class="" name="address" id="checkout-address" placeholder="Address" required>
                 </div>
                 <p style="color: red;">Total amount: R <?php echo $_SESSION['total']?></p>

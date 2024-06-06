@@ -12,6 +12,8 @@ function calculateTotalCart(){
     }
     $_SESSION['total'] = $total;
 }
+
+// allow us to view cart without errors
 if(!isset($_POST['add_to_cart'])){
     $_SESSION['cart'] = array();
     calculateTotalCart();

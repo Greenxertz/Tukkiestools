@@ -20,31 +20,25 @@ if (isset($_GET['logout'])) {
 if (isset($_POST['change_password'])) {
     $password = $_POST['password'];
     $confirmpassword = $_POST['confirmpassword'];
-    $user_email = $_SESSION['user_email'];
+    $user_email = $_SESSION['user_email'];        
 
-    //     echo '<pre>';
-    //    var_dump($_SESSION);
-    //     echo '</pre>';
-        
+    if ($password !== $confirmpassword) {
+        header('location: account.php?error=Passwords do not match!');
+    } else if (strlen($password) < 6) {
+        header('location: account.php?error=Password must be at least 6 characters long');
+    } else {
+        // Use password_hash for secure password storage
+        $hashed_password = md5($password);
+        $stmt = $conn->prepare("UPDATE users SET user_password=? WHERE user_email=?");
+        $stmt->bind_param('ss', $hashed_password, $user_email);
 
-        if ($password !== $confirmpassword) {
-            header('location: account.php?error=Passwords do not match!');
-        } else if (strlen($password) < 6) {
-            header('location: account.php?error=Password must be at least 6 characters long');
+        if ($stmt->execute()) {
+            header('location: account.php?message=Password has been updated successfully!');
         } else {
-            // Use password_hash for secure password storage
-            $hashed_password = md5($password);
-            $stmt = $conn->prepare("UPDATE users SET user_password=? WHERE user_email=?");
-            $stmt->bind_param('ss', $hashed_password, $user_email);
-
-            if ($stmt->execute()) {
-                header('location: account.php?message=Password has been updated successfully!');
-            } else {
-                header('location: account.php?error=Could not update password!');
-            }
-
-            $stmt->close();
+            header('location: account.php?error=Could not update password!');
         }
+        $stmt->close();
+    }
     
 }
 
