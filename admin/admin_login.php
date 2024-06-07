@@ -1,4 +1,5 @@
 <?php
+
 session_start();
 
 include('../server/connection.php');
@@ -38,7 +39,7 @@ if (isset($_POST['login_btn'])) {
                 $_SESSION['admin_logged_in'] = true;
                 header('Location: dashboard.php?message=Logged in successfully!');
             } else {
-                header('Location: admin_login.php?error=Invalid email or password!');
+               header('Location: admin_login.php?error=Invalid email or password!');
             }
         } else {
             header('Location: admin_login.php?error=Account does not exist!');
@@ -53,29 +54,12 @@ if (isset($_POST['login_btn'])) {
 }
 ?>
 
-
-
-
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tukkies Tools website</title>
-    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" /> 
-    <link rel="apple-touch-icon" sizes="180x180" href="assets/images/website-assets/favicon_io/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="assets/images/website-assets/favicon_io/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="assets/images/website-assets/favicon_io/favicon-16x16.png">
-    <link rel="manifest" href="assets/images/website-assets/favicon_io/site.webmanifest">
-
-</head>
+<?php include('admin_header.php'); ?>
 
 <body >
     <section>
         <div class="user-container">
-            <h2>Sign In</h2>
+            <h2>Admin Login</h2>
             <hr>
         </div>
         <div >

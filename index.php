@@ -66,7 +66,7 @@
             <?php while($row = $featured_products->fetch_assoc()){ ?>
 
                 <div class="pro" onclick="window.location.href='<?php echo "sproduct.php?product_id=". $row['product_id'];?>';">
-                   <img src="assets/images/Shop-images/<?php echo $row['product_category']; ?>/<?php echo $row['product_image']; ?>" alt="<?php echo $row['product_name']; ?>">
+                   <img src="assets/images/Shop-images/<?php echo $row['product_image1']; ?>" alt="<?php echo $row['product_name']; ?>">
                    <div class="des">
                         <span><?php echo $row['product_category']; ?></span>
                         <h5><?php echo $row['product_name']; ?></h5>
@@ -96,7 +96,7 @@
         <?php while($row = $new_products->fetch_assoc()){ ?>
 
             <div class="pro" onclick="window.location.href='<?php echo "sproduct.php?product_id=". $row['product_id'];?>';">
-               <img src="assets/images/Shop-images/<?php echo $row['product_category']; ?>/<?php echo $row['product_image']; ?>" alt="<?php echo $row['product_name']; ?>">
+               <img src="assets/images/Shop-images/<?php echo $row['product_image1']; ?>" alt="<?php echo $row['product_name']; ?>">
                <div class="des">
                     <span><?php echo $row['product_category']; ?></span>
                     <h5><?php echo $row['product_name']; ?></h5>

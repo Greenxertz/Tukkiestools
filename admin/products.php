@@ -14,7 +14,7 @@ $offset = ($page_no - 1) * $total_records_per_page;
 $previous_page = $page_no - 1;
 $next_page = $page_no + 1;
 
-$stmt1 = $conn->prepare("SELECT COUNT(*) AS total_records FROM orders ORDER BY order_date DESC");
+$stmt1 = $conn->prepare("SELECT COUNT(*) AS total_records FROM products");
 $stmt1->execute();
 $stmt1->bind_result($total_records);
 $stmt1->store_result();
@@ -22,10 +22,10 @@ $stmt1->fetch();
 
 $total_no_of_pages = ceil($total_records / $total_records_per_page);
 
-$stmt2 = $conn->prepare("SELECT * FROM orders LIMIT ?, ?");
+$stmt2 = $conn->prepare("SELECT * FROM products LIMIT ?, ?");
 $stmt2->bind_param("ii", $offset, $total_records_per_page);
 $stmt2->execute();
-$all_orders = $stmt2->get_result();
+$products = $stmt2->get_result();
 ?>
 
 <body>
@@ -36,31 +36,35 @@ $all_orders = $stmt2->get_result();
         </aside>
         <main class="main-content">
             <section id="order-table">
-                <h2>Orders</h2>
+                <h2>Products</h2>
                 <table>
                     <thead>
                         <tr>
-                            <th>Order ID</th>
-                            <th>Order Status</th>
-                            <th>Order Date</th>
-                            <th>User ID</th>
-                            <th>User Phone</th>
-                            <th>Specified Address</th> 
+                            <th>Product ID</th>
+                            <th>Product Image</th>
+                            <th>Product Name</th>
+                            <th>Product Price</th>
+                            <th>Product Category</th>
+                            <th>Product Special</th>
+                            <th>Product Description</th>
+                            <th>Product Date Added</th>
                             <th>Edit</th>
                             <th>Delete</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <?php foreach($all_orders as $order) { ?>
+                        <?php foreach($products as $product) { ?>
                         <tr>
-                            <td><?php echo $order['order_id']; ?></td>
-                            <td><?php echo $order['order_status']; ?></td>
-                            <td><?php echo $order['order_date']; ?></td>
-                            <td><?php echo $order['user_id']; ?></td>
-                            <td><?php echo $order['user_phone']; ?></td>
-                            <td><?php echo $order['user_address']; ?></td>
-                            <td><a href="" class="btn">Edit</a></td>
-                            <td><a href="" class="btn">Delete</a></td>
+                            <td><?php echo $product['product_id']; ?></td>
+                            <td><img src="../assets/images/shop-images/<?php echo $product['product_image1']; ?>" ></td>
+                            <td><?php echo $product['product_name']; ?></td>
+                            <td>R <?php echo $product['product_price']; ?></td>
+                            <td><?php echo $product['product_category']; ?></td>
+                            <td><?php echo $product['product_special_offer']; ?></td>
+                            <td><?php echo $product['product_description']; ?></td>
+                            <td><?php echo $product['products_date_added']; ?></td>
+                            <td><a href="edit_product.php?product_id=<?php echo $product['product_id'];?>" class="btn">Edit</a></td>
+                            <td><a href="delete_product.php?product_id=<?php echo $product['product_id'];?>" class="btn">Delete</a></td>
                         </tr>
                         <?php } ?>
                     </tbody>

@@ -71,7 +71,7 @@ function calculateTotalOrderPrice($order_details){
             <?php foreach($order_details as $row) {?>
                 <tr>
                     <td>
-                        <img src="assets/images/Shop-images/<?php echo $row['product_category']; ?>/<?php echo $row['product_image']; ?>" alt="<?php echo $row['product_name']; ?>">
+                        <img src="assets/images/Shop-images/<?php echo $row['product_image']; ?>" alt="<?php echo $row['product_name']; ?>">
                         <div>
                             <p><?php echo $row['product_name']; ?></p>
                         </div>

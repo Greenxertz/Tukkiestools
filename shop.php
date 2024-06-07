@@ -122,7 +122,7 @@ if(isset($_POST['category']) && $_POST['category'] != 'All') {
             <?php if($all_products->num_rows > 0) { ?>
                 <?php while($row = $all_products->fetch_assoc()) { ?>
                     <div class="pro" onclick="window.location.href='<?php echo "sproduct.php?product_id=". $row['product_id'];?>';">
-                        <img src="assets/images/Shop-images/<?php echo $row['product_category']; ?>/<?php echo $row['product_image']; ?>" alt="<?php echo $row['product_name']; ?>">
+                        <img src="assets/images/Shop-images/<?php echo $row['product_image1']; ?>" alt="<?php echo $row['product_name']; ?>">
                         <div class="des">
                             <span><?php echo $row['product_category']; ?></span>
                             <h5><?php echo $row['product_name']; ?></h5>
@@ -140,23 +140,41 @@ if(isset($_POST['category']) && $_POST['category'] != 'All') {
     </section>
 
     <section id="pagination" class="section-p1">
-        <?php if ($page_no > 1) { ?>
-            <a class="btn" href="?page_no=<?php echo $previous_page; ?>">Previous</a>
-        <?php } ?>
-
         <?php
-        if ($page_no == 1) {
-            echo '<a class="btn" href="?page_no=1" class="active">1</a>';
-            echo '<a class="btn" href="?page_no=2">2</a>';
-        } else {
-            echo '<a class="btn" href="?page_no=1">1</a>';
-            echo '<a class="btn" href="?page_no=2" class="active">2</a>';
-        }
-        ?>
+            $adjacents = 2; // Number of adjacent pages on each side
+            $start = ($page_no > $adjacents) ? $page_no - $adjacents : 1;
+            $end = ($page_no + $adjacents < $total_no_of_pages) ? $page_no + $adjacents : $total_no_of_pages;
 
-        <?php if ($page_no < $total_no_of_pages) { ?>
-            <a class="btn" href="?page_no=<?php echo $next_page; ?>">Next</a>
-        <?php } ?>
+            if ($page_no > 1) {
+                echo '<a class="btn" href="?page_no=' . $previous_page . '">Previous</a>';
+            }
+
+            if ($start > 1) {
+                echo '<a class="btn" href="?page_no=1">1</a>';
+                if ($start > 2) {
+                    echo '<span>...</span>';
+                }
+            }
+
+            for ($i = $start; $i <= $end; $i++) {
+                if ($i == $page_no) {
+                    echo "<a class='btn active' href='?page_no=$i'>$i</a>";
+                } else {
+                    echo "<a class='btn' href='?page_no=$i'>$i</a>";
+                }
+            }
+
+            if ($end < $total_no_of_pages) {
+                if ($end < $total_no_of_pages - 1) {
+                    echo '<span>...</span>';
+                }
+                echo '<a class="btn" href="?page_no=' . $total_no_of_pages . '">' . $total_no_of_pages . '</a>';
+            }
+
+            if ($page_no < $total_no_of_pages) {
+                echo '<a class="btn" href="?page_no=' . $next_page . '">Next</a>';
+            }
+        ?>
     </section>
 
     <section id="newsletter" class="section-p1 section-m1">

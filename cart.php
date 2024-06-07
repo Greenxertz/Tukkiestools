@@ -97,7 +97,7 @@ if (isset($_POST['edit_quantity'])) {
                 <tr>
                     <td>
                         <div>
-                            <img src="assets/images/Shop-images/<?php echo  $value['product_category'];?>/<?php echo  $value['product_image'];?>" alt="">
+                            <img src="assets/images/Shop-images/<?php echo  $value['product_image'];?>" alt="">
                             <div>
                                 <p><?php echo  $value['product_name'];?></p>
                                 <small><span>R</span><?php echo  $value['product_price'];?></small>

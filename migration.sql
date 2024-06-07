@@ -49,7 +49,8 @@ CREATE TABLE IF NOT EXISTS `users` (
 ALTER TABLE `order_items` ADD `product_price` DECIMAL(6,2) NOT NULL AFTER `product_image`, ADD `product_quantity` INT NOT NULL AFTER `product_price`;
 ALTER TABLE `order_items` ADD `product_category` VARCHAR(100) NOT NULL AFTER `product_image`;
 ALTER TABLE `products` ADD `products_date_added` DATE NOT NULL DEFAULT CURRENT_TIMESTAMP AFTER `product_color`;
-
+ALTER TABLE `products` DROP `product_color`;
+ALTER TABLE `products` CHANGE `product_image` `product_image1` VARCHAR(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL;
 
 -- populates the database
 -- Insert data into the 'users' table
