@@ -177,6 +177,9 @@ if(!isset($_POST['add_to_cart']) && !isset($_POST['remove_product']) && !isset($
                     <td><strong>R <?php echo $_SESSION['total']; ?></strong></td>
                 </tr>
             </table>
+            
+            <input type="button" class="btn" value="Continue Shopping" onclick="window.location.href='shop.php'"/>
+
             <form method="POST" action="checkout.php">
                 <input type="submit" class="btn" value="Proceed to checkout" name="checkout"/>
             </form>
