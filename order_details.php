@@ -94,7 +94,7 @@ function calculateTotalOrderPrice($order_details){
                 <form style="float: right" method="POST" action="payment.php">
                     <input type="hidden" name="order_total_price" value="<?php echo  $order_total_price;?>">
                     <input type="hidden" name="order_status" value="<?php echo  $order_status;?>">
-                    
+                    <label for="">dadad</label>
                     <input type="submit" name="order_pay_btn" class="btn" id="pay_btn" value="Pay Now">
                 </form>
             </div>

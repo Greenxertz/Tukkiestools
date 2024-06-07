@@ -114,7 +114,6 @@ if(!isset($_POST['add_to_cart']) && !isset($_POST['remove_product']) && !isset($
         <p>We hope you found everything you needed</p>
               
      </section>
-     <?php echo var_dump($_SESSION['cart']); ?>
      <section id="cart" class="section-p1">
         <table width="100%">
             <thead>

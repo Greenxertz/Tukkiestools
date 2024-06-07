@@ -28,8 +28,6 @@ $came_from = isset($_SESSION['came_from']) ? $_SESSION['came_from'] : 'unknown';
             <hr>
         </div>
         <div id="payment-form">
-            <?php echo var_dump($_SESSION); ?>
-            <?php echo var_dump($_POST); ?>
             <?php if($_SESSION['came_from'] == "checkout" ) {?>
 
                 <p>Total amount due: R<?php echo $_SESSION['total'] ?></p>
