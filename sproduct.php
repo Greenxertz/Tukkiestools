@@ -96,8 +96,8 @@ if (isset($_GET['product_id'])) {
                 <input type="hidden" name="product_name" value="<?php echo $row['product_name']; ?>">
                 <input type="hidden" name="product_price" value="<?php echo $row['product_price']; ?>">
                 <input type="hidden" name="product_category" value="<?php echo $row['product_category']; ?>">
+                <input type="number" name="product_quantity" value="1" min="1" onchange="validateQuantityInput(event)" />
 
-                <input type="number" name="product_quantity" value="1">
                 <button class="btn" type="submit" name="add_to_cart">Add to cart</button>
             </form>
         </div>
@@ -134,6 +134,15 @@ if (isset($_GET['product_id'])) {
     <footer></footer>
 
     <script>
+
+    function validateQuantityInput(event) {
+        var input = event.target;
+        if (input.value === '' || input.value <= 0 || input.value.trim() === '') {
+            alert('Please enter a valid quantity.');
+            input.value = 1; // Reset to a default valid value if invalid input
+        }
+    }
+
         var mainimg = document.getElementById("mainimg");
         var smallimgs = document.querySelectorAll(".small-img-col img");
 

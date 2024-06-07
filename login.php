@@ -12,35 +12,40 @@ if (isset($_POST['login_btn'])) {
     $email = $_POST['email'];
     $password = md5($_POST['password']);
 
-    // Fetch user details from database
-    $stmt = $conn->prepare("SELECT user_id, user_name, user_password FROM users WHERE user_email = ? LIMIT 1");
-    $stmt->bind_param('s', $email);
+    if (strtolower($email) == 'admin@email.com' ){
 
-    if ($stmt->execute()) {
-        $stmt->bind_result($user_id, $user_name, $user_password);
-        $stmt->store_result();
-        
+        header('location: admin/admin_login.php');
 
-        if ($stmt->num_rows == 1) {
-            $stmt->fetch();  
-            // Verify the password          
-            if ($password == $user_password) {
-                
-                $_SESSION['user_id'] = $user_id;
-                $_SESSION['user_name'] = $user_name;
-                $_SESSION['user_email'] = $email;
-                $_SESSION['logged_in'] = true;
-                header('location: account.php?message=Logged in successfully!');
+    } else {
+        // Fetch user details from database
+        $stmt = $conn->prepare("SELECT user_id, user_name, user_password FROM users WHERE user_email = ? LIMIT 1");
+        $stmt->bind_param('s', $email);
+
+        if ($stmt->execute()) {
+            $stmt->bind_result($user_id, $user_name, $user_password);
+            $stmt->store_result();
+            
+
+            if ($stmt->num_rows == 1) {
+                $stmt->fetch();  
+                // Verify the password          
+                if ($password == $user_password) {
+                    
+                    $_SESSION['user_id'] = $user_id;
+                    $_SESSION['user_name'] = $user_name;
+                    $_SESSION['user_email'] = $email;
+                    $_SESSION['logged_in'] = true;
+                    header('location: account.php?message=Logged in successfully!');
+                } else {
+                    header('location: login.php?error=Invalid email or password!');
+                }
             } else {
-                header('location: login.php?error=Invalid email or password!');
+                header('location: login.php?error=Account does not exist!');
             }
         } else {
-            header('location: login.php?error=Account does not exist!');
+            header('location: login.php?error=Something went wrong');
         }
-    } else {
-        header('location: login.php?error=Something went wrong');
     }
-
     $stmt->close();
 }
 ?>
