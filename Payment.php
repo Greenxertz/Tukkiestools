@@ -56,4 +56,4 @@ $came_from = isset($_SESSION['came_from']) ? $_SESSION['came_from'] : 'unknown';
     <script src="assets/js/header-footer.js"></script>
     <script src="assets/js/navbar.js"></script>
 </body>
-</html>
+</html> 
