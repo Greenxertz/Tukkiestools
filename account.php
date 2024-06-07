@@ -101,9 +101,8 @@ if (isset($_SESSION['logged_in'])) {
                     <input type="submit" name="change_password" class="btn" id="change_pass_btn">
                 </div>
             </form>
-            <p style="color:black"><?php if (isset($_GET['error'])) { echo $_GET['error']; } ?></p>
-            <p style="color:black"><?php if (isset($_GET['message'])) { echo $_GET['message']; } ?></p>
-
+            <p style="color:black"><?php if (isset($_GET['error'])) { echo $_GET['error']; }?></p>
+            <p style="color:black"><?php if (isset($_GET['message'])) { echo $_GET['message']; }?></p>
         </div>
         
     </section>

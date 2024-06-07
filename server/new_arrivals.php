@@ -6,4 +6,4 @@ $stmt = $conn->prepare("SELECT * FROM products ORDER BY products_date_added DESC
 
 $stmt -> execute();
 
-$featured_products = $stmt -> get_result();
+$new_products = $stmt -> get_result();

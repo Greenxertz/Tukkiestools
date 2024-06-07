@@ -13,7 +13,7 @@ $adjacents = "2";
 
 if(isset($_POST['category']) && $_POST['category'] != 'All') {
     $category = $_POST['category'];
-    $price = $_POST['price'] ?? 10000;
+    $price = $_POST['price'] ?? 1000;
 
     $stmt1 = $conn->prepare("SELECT COUNT(*) AS total_records FROM products WHERE product_category=? AND product_price <=?");
     $stmt1->bind_param('si', $category, $price);

@@ -14,7 +14,7 @@ function calculateTotalCart(){
 }
 
 // allow us to view cart without errors
-if(!isset($_POST['add_to_cart'])){
+if(!isset($_POST['add_to_cart']) && !isset($_POST['remove_product']) && !isset($_POST['edit_quantity']) ){
     $_SESSION['cart'] = array();
     calculateTotalCart();
     
@@ -41,8 +41,7 @@ if(!isset($_POST['add_to_cart'])){
             $_SESSION['cart'][$_POST['product_id']] = $product_array;
     
         } else {
-            echo '<script>alert("Product is already in the cart.");</script>';
-            echo '<script>window.location = "cart.php";</script>';
+            
         }
 
     // if this is the first product 
@@ -112,9 +111,10 @@ if(!isset($_POST['add_to_cart'])){
 
     <section id="page-header" class="cart-header">
         <h2>Thanks for shopping with us</h2>
-        <p>We hope you found everything you needed</p>      
+        <p>We hope you found everything you needed</p>
+              
      </section>
-
+     <?php echo var_dump($_SESSION['cart']); ?>
      <section id="cart" class="section-p1">
         <table width="100%">
             <thead>
@@ -181,7 +181,6 @@ if(!isset($_POST['add_to_cart'])){
             <form method="POST" action="checkout.php">
                 <input type="submit" class="btn" value="Proceed to checkout" name="checkout"/>
             </form>
-            
         </div>
      </section>
 

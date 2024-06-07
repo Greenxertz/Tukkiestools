@@ -1,11 +1,6 @@
-<?php 
-
+<?php
 session_start();
-
-if(isset($_POST['order_pay_btn'])) {
-    $order_status = $_POST['order_status'];
-    $order_total_price = $_POST['order_total_price'];
-}
+$came_from = isset($_SESSION['came_from']) ? $_SESSION['came_from'] : 'unknown';
 ?>
 
 
@@ -33,24 +28,26 @@ if(isset($_POST['order_pay_btn'])) {
             <hr>
         </div>
         <div id="payment-form">
-            
-            <?php if(isset($_SESSION['total']) && $_SESSION['total'] != 0) {?>
+            <?php echo var_dump($_SESSION); ?>
+            <?php echo var_dump($_POST); ?>
+            <?php if($_SESSION['came_from'] == "checkout" ) {?>
 
                 <p>Total amount due: R<?php echo $_SESSION['total'] ?></p>
                 <p>You can continue to browse and pay later via cart if you'd like.</p>
                 <input class='btn' type="submit" value="Pay Now"/>
-            
-            <?php } else if(isset($_POST['order_status']) && $_POST['order_status'] == "not paid" ){ ?>
+
+                <?php } else if($_SESSION['came_from'] == "account" && $_POST['order_status']== "not paid" ){ ?>
 
                 <p>Total amount due: R<?php echo $_POST['order_total_price']; ?></p>
-                <p>You can continue to browse and pay later via cart if you'd like.</p>
+                <p>Delivery will only begin once payment has been confirmed.</p>
                 <input class='btn' type="submit" value="Pay Now"/>
-            <?php } else { ?>
+                <?php } else { ?>
 
-                <p>All payments are done!</p>
+                <p>No payment needed, Thank you for shopping with us!</p>
 
-            <?php } ?>
+                <?php } ?>
 
+                <p>You came from: <?php echo $came_from; ?> page.</p>
             
         </div>
     </section>

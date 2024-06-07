@@ -93,7 +93,7 @@
 
         <?php include('server/new_arrivals.php') ?>
 
-        <?php while($row = $featured_products->fetch_assoc()){ ?>
+        <?php while($row = $new_products->fetch_assoc()){ ?>
 
             <div class="pro" onclick="window.location.href='<?php echo "sproduct.php?product_id=". $row['product_id'];?>';">
                <img src="assets/images/Shop-images/<?php echo $row['product_category']; ?>/<?php echo $row['product_image']; ?>" alt="<?php echo $row['product_name']; ?>">

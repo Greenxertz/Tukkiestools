@@ -5,7 +5,12 @@ session_start();
 if( !empty($_SESSION['cart'])) {
 
     //let user in 
+    if($_SESSION['logged_in']=='true'){
 
+    } else {
+        header('location: ../login.php?message=Please Login/Signup to continue');
+    } 
+    
     
     // send user back to previous page
 } else {

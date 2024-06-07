@@ -26,6 +26,7 @@ if(!isset($_SESSION['logged_in'])) {
         $address = $_POST['address'];
         $order_cost = $_SESSION['total'];
         $order_status = 'not paid';
+        $_SESSION['order_status'] = $order_status;
         $user_id = $_SESSION['user_id'];
         $order_date= date('Y-m-d H:i:s');
 
@@ -46,6 +47,7 @@ if(!isset($_SESSION['logged_in'])) {
             foreach($_SESSION['cart']as $key => $value) {
 
                 $product = $_SESSION['cart'][$key]; 
+               
                 $product_id = $product['product_id'];
                 $product_name = $product['product_name'];
                 $product_image = $product['product_image'];
@@ -59,11 +61,15 @@ if(!isset($_SESSION['logged_in'])) {
                 $stmt1->bind_param('iisssiiis', $order_id, $product_id, $product_name, $product_image, $product_category, $product_price, $product_quantity, $user_id,  $order_date);
             
                 $stmt1->execute();
+
+
             }
-             // clear cart --> delay till payment done
+            $_SESSION['came_from'] = 'checkout';
+            header('Location: ../payment.php');
             unset($_SESSION['cart']);
-            header('location: ../payment.php?order_status=order placed successfully'); 
+            exit();
         }
        
     }
 }
+
