@@ -51,6 +51,10 @@ ALTER TABLE `order_items` ADD `product_category` VARCHAR(100) NOT NULL AFTER `pr
 ALTER TABLE `products` ADD `products_date_added` DATE NOT NULL DEFAULT CURRENT_TIMESTAMP AFTER `product_color`;
 ALTER TABLE `products` DROP `product_color`;
 ALTER TABLE `products` CHANGE `product_image` `product_image1` VARCHAR(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL;
+ALTER TABLE `orders` CHANGE `order_cost` `order_cost` DECIMAL(10,2) NOT NULL;
+ALTER TABLE `order_items` CHANGE `product_price` `product_price` DECIMAL(10,2) NOT NULL;
+ALTER TABLE `products` CHANGE `product_price` `product_price` DECIMAL(10,2) NOT NULL;
+
 
 -- populates the database
 -- Insert data into the 'users' table
