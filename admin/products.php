@@ -37,6 +37,12 @@ $products = $stmt2->get_result();
         <main class="main-content">
             <section id="order-table">
                 <h2>Products</h2>
+                <?php if(isset($_GET['edit_message'])) {?>
+                    <p><?php echo $_GET['edit_message'];?></p>
+                <?php  } ?>
+                <?php if(isset($_GET['delete_message'])) {?>
+                    <p><?php echo $_GET['delete_message'];?></p>
+                <?php  } ?>
                 <table>
                     <thead>
                         <tr>

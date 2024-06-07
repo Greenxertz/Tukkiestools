@@ -17,9 +17,9 @@ if(isset($_GET['product_id'])) {
     $stmt ->bind_param('i',$product_id);
     
     if($stmt ->execute()) {
-        header('location: products.php');
+        header('location: products.php?delete_message=Delete was successful');
     }else {
-        header('location: products.php');  
+        header('location: products.php?delete_message=Delete was unsuccessful');  
     }
 
 }

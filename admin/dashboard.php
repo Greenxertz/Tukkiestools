@@ -59,9 +59,8 @@ $all_orders = $stmt2->get_result();
                             <td><?php echo $order['user_id']; ?></td>
                             <td><?php echo $order['user_phone']; ?></td>
                             <td><?php echo $order['user_address']; ?></td>
-                            <td><a href="" class="btn">Edit</a></td>
-                            <td><a href="" class="btn">Delete</a></td>
-                        </tr>
+                            <td><a href="edit_orders.php?order_id=<?php echo $order['order_id'];?>" class="btn">Edit</a></td>
+                            <td><a href="delete_orders.php?order_id=<?php echo $order['order_id'];?>" class="btn">Delete</a></td> </tr>
                         <?php } ?>
                     </tbody>
                 </table>
