@@ -42,7 +42,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     for ($i = 1; $i <= 4; $i++) {
         if (!empty($_FILES["product_image_$i"]["name"])) {
             $image_name = basename($_FILES["product_image_$i"]["name"]);
-            $target_dir = "../assets/images/shop-images/";
+            $target_dir = "../assets/images/Shop-images/"; // Ensure this path is correct
             $target_file = $target_dir . $image_name;
             if (!file_exists($target_dir)) {
                 mkdir($target_dir, 0777, true); // Create the directory if it doesn't exist
