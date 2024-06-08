@@ -62,7 +62,7 @@ $products = $stmt2->get_result();
                         <?php foreach($products as $product) { ?>
                         <tr>
                             <td><?php echo $product['product_id']; ?></td>
-                            <td><img src="../assets/images/shop-images/<?php echo $product['product_image1']; ?>" ></td>
+                            <td><img src="../assets/images/Shop-images/<?php echo $product['product_image1']; ?>" ></td>
                             <td><?php echo $product['product_name']; ?></td>
                             <td>R <?php echo $product['product_price']; ?></td>
                             <td><?php echo $product['product_category']; ?></td>
