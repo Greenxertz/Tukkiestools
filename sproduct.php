@@ -38,27 +38,7 @@ if (isset($_GET['product_id'])) {
 
 ?>
 
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tukkies Tools website</title>
-    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" /> 
-    <link rel="stylesheet" href="assets/css/main.css">
-    <link rel="stylesheet" href="assets/css/mediaqueries.css">
-    <link rel="apple-touch-icon" sizes="180x180" href="assets/images/website-assets/favicon_io/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="assets/images/website-assets/favicon_io/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="assets/images/website-assets/favicon_io/favicon-16x16.png">
-    <link rel="manifest" href="assets/images/website-assets/favicon_io/site.webmanifest">
-
-
-</head>
-
-<body >
-   <header></header>
+<?php include('header.php'); ?>
    
    <?php while($row = $product ->fetch_assoc()) { ?>
 
@@ -114,16 +94,25 @@ if (isset($_GET['product_id'])) {
     
                 <?php while($row = $similar_products->fetch_assoc()){ ?>
     
-                <div class="pro" onclick="window.location.href='<?php echo "sproduct.php?product_id=". $row['product_id'];?>';">
-                       <img src="assets/images/Shop-images/<?php echo $row['product_image1']; ?>" alt="<?php echo $row['product_name']; ?>">
-                       <div class="des">
-                            <span><?php echo $row['product_category']; ?></span>
-                            <h5><?php echo $row['product_name']; ?></h5>
-                            <h4>R <?php echo $row['product_price']; ?> </h4>
-                       </div>
-                        <a href="#"><i class="fal fa-shopping-cart cart"></i></a>
+                 <div class="card-container">
+                    <div class="card" onclick="window.location.href='<?php echo "sproduct.php?product_id=". $row['product_id'];?>';">
+                        <div class="card-inner">
+                            <div class="card-front">
+                            <img src="assets/images/Shop-images/<?php echo $row['product_image1']; ?>" alt="<?php echo $row['product_name']; ?>">
+                            </div>
+                            <div class="card-back">
+                                <img src="assets/images/Shop-images/<?php echo $row['product_image1']; ?>" alt="<?php echo $row['product_name']; ?>">
+                                <div class="card-back-content">
+                                    <span><?php echo $row['product_category']; ?></span>
+                                    <h5><?php echo $row['product_name']; ?></h5>
+                                    <h4>R <?php echo $row['product_price']; ?> </h4>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                <?php } ?>
+                </div>
+            <?php } ?>
+
     
             </div>
         </section>
@@ -131,7 +120,6 @@ if (isset($_GET['product_id'])) {
 
     
    
-    <footer></footer>
 
     <script>
 
@@ -153,9 +141,4 @@ if (isset($_GET['product_id'])) {
       });
     </script>
 
-<script src="assets/js/header-footer.js"></script>
-    <script src="assets/js/navbar.js"></script>
-    
-</body>
-
-</html> 
+<?php include('footer.php'); ?>

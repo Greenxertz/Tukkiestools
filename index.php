@@ -1,23 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tukkies Tools website</title>
-    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" /> 
-    <link rel="stylesheet" href="assets/css/main.css">
-    <link rel="stylesheet" href="assets/css/mediaqueries.css">
-    <link rel="apple-touch-icon" sizes="180x180" href="assets/images/website-assets/favicon_io/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="assets/images/website-assets/favicon_io/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="assets/images/website-assets/favicon_io/favicon-16x16.png">
-    <link rel="manifest" href="assets/images/website-assets/favicon_io/site.webmanifest">
-    
-</head>
-
-<body >
-    <header></header>
+<?php include('header.php'); ?>
     
     <section id="hero">
        <h4>Welcome to Tukkies Tools</h4>
@@ -25,8 +7,89 @@
        <h1>cant find your stuff?</h1>
        <p>let us know</p>
        <form action="shop.php"> 
-        <button class="button">Shopping</button>
-       </form>      
+        <button class="btn">Shopping</button>
+       </form> 
+    </section>
+
+    <section>
+       <div id="cube-container">
+        <div id="cube">
+            <div class="face front"><img src="assets/images/website-assets/logo.png"></div>
+            <div class="face back"><img src="assets/images/website-assets/logo.png"></div>
+            <div class="face left"><img src="assets/images/website-assets/logo.png"></div>
+            <div class="face right"><img src="assets/images/website-assets/logo.png"></div>
+            <div class="face top"><img src="assets/images/website-assets/logo.png"></div>
+            <div class="face bottom"><img src="assets/images/website-assets/logo.png"></div>
+        </div>
+    </div>
+
+        <script>
+            let rotateX = 0;
+            let rotateY = 0;
+            let rotateSpeedX = 0;
+            let rotateSpeedY = 0;
+            let dragging = false;
+            let previousMouseX;
+            let previousMouseY;
+            let lastMoveTimestamp;
+
+            const cube = document.getElementById('cube');
+
+            function applyRotation() {
+                rotateX += rotateSpeedX;
+                rotateY += rotateSpeedY;
+                cube.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+                requestAnimationFrame(applyRotation);
+            }
+
+            // Initial spin
+            rotateSpeedX = 0.5; // Adjust the initial spin speed
+            rotateSpeedY = 0.5; // Adjust the initial spin speed
+
+            cube.addEventListener('mousedown', (event) => {
+                dragging = true;
+                rotateSpeedX = 0;
+                rotateSpeedY = 0;
+                previousMouseX = event.clientX;
+                previousMouseY = event.clientY;
+                lastMoveTimestamp = Date.now();
+                cube.style.cursor = 'grabbing';
+            });
+
+            document.addEventListener('mousemove', (event) => {
+                if (!dragging) return;
+
+                const currentTime = Date.now();
+                const timeElapsed = currentTime - lastMoveTimestamp;
+
+                const deltaX = event.clientX - previousMouseX;
+                const deltaY = event.clientY - previousMouseY;
+
+                rotateSpeedX = deltaY / timeElapsed * 5;
+                rotateSpeedY = deltaX / timeElapsed * 5;
+
+                rotateX += deltaY * 0.5;
+                rotateY += deltaX * 0.5;
+
+                cube.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+
+                previousMouseX = event.clientX;
+                previousMouseY = event.clientY;
+                lastMoveTimestamp = currentTime;
+            });
+
+            document.addEventListener('mouseup', () => {
+                dragging = false;
+                cube.style.cursor = 'grab';
+            });
+
+            document.addEventListener('mouseleave', () => {
+                dragging = false;
+                cube.style.cursor = 'grab';
+            });
+
+            requestAnimationFrame(applyRotation);
+        </script>
     </section>
 
     <section id="feature" class="section-p1">
@@ -65,14 +128,22 @@
 
             <?php while($row = $featured_products->fetch_assoc()){ ?>
 
-                <div class="pro" onclick="window.location.href='<?php echo "sproduct.php?product_id=". $row['product_id'];?>';">
-                   <img src="assets/images/Shop-images/<?php echo $row['product_image1']; ?>" alt="<?php echo $row['product_name']; ?>">
-                   <div class="des">
-                        <span><?php echo $row['product_category']; ?></span>
-                        <h5><?php echo $row['product_name']; ?></h5>
-                        <h4>R <?php echo $row['product_price']; ?> </h4>
-                   </div>
-                    <a href="#"><i class="fal fa-shopping-cart cart"></i></a>
+                   <div class="card-container">
+                    <div class="card" onclick="window.location.href='<?php echo "sproduct.php?product_id=". $row['product_id'];?>';">
+                        <div class="card-inner">
+                            <div class="card-front">
+                            <img src="assets/images/Shop-images/<?php echo $row['product_image1']; ?>" alt="<?php echo $row['product_name']; ?>">
+                            </div>
+                            <div class="card-back">
+                                <img src="assets/images/Shop-images/<?php echo $row['product_image1']; ?>" alt="<?php echo $row['product_name']; ?>">
+                                <div class="card-back-content">
+                                    <span><?php echo $row['product_category']; ?></span>
+                                    <h5><?php echo $row['product_name']; ?></h5>
+                                    <h4>R <?php echo $row['product_price']; ?> </h4>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             <?php } ?>
 
@@ -81,7 +152,7 @@
 
     <section id="banner" class="section-m1">
         <h4>Have a Look at</h4>
-        <h2>Our <span>Specials</span> and <span>Combos</span> today!</h2>
+        <h2 style="font-size: 20px;">Our <span style="font-size: 30px; color:white;">Specials</span> and <span style="font-size: 30px;color:white;">Combos</span> today!</h2>
         <button class="btn">Explore</button>
 
     </section>
@@ -91,20 +162,28 @@
         <p>Some of the latest Items</p>
         <div class="pro-container">
 
-        <?php include('server/new_arrivals.php') ?>
+            <?php include('server/new_arrivals.php') ?>
 
-        <?php while($row = $new_products->fetch_assoc()){ ?>
+            <?php while($row = $new_products->fetch_assoc()){ ?>
 
-            <div class="pro" onclick="window.location.href='<?php echo "sproduct.php?product_id=". $row['product_id'];?>';">
-               <img src="assets/images/Shop-images/<?php echo $row['product_image1']; ?>" alt="<?php echo $row['product_name']; ?>">
-               <div class="des">
-                    <span><?php echo $row['product_category']; ?></span>
-                    <h5><?php echo $row['product_name']; ?></h5>
-                    <h4>R <?php echo $row['product_price']; ?> </h4>
-             </div>
-              <a href="#"><i class="fal fa-shopping-cart cart"></i></a>
-           </div>
-        <?php } ?>
+               <div class="card-container">
+                    <div class="card" onclick="window.location.href='<?php echo "sproduct.php?product_id=". $row['product_id'];?>';">
+                        <div class="card-inner">
+                            <div class="card-front">
+                            <img src="assets/images/Shop-images/<?php echo $row['product_image1']; ?>" alt="<?php echo $row['product_name']; ?>">
+                            </div>
+                            <div class="card-back">
+                                <img src="assets/images/Shop-images/<?php echo $row['product_image1']; ?>" alt="<?php echo $row['product_name']; ?>">
+                                <div class="card-back-content">
+                                    <span><?php echo $row['product_category']; ?></span>
+                                    <h5><?php echo $row['product_name']; ?></h5>
+                                    <h4>R <?php echo $row['product_price']; ?> </h4>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            <?php } ?>
                
      </div>
     </section>
@@ -140,24 +219,11 @@
         </div>
     </section>
 
-    <section id="newsletter" class="section-p1 section-m1">
-        <div class="newstext">
-            <h4>Want to be kept updated with whats happening?</h4>
-            <p>Sign Up <span>TODAY!</span></p>
-        </div>
-        <div class="form">
-            <input type="text" placeholder="Your email address">
-            <button class="btn" >Sign up</button>
-        </div>
 
-    </section>
-
-    <footer></footer>
+<?php include('footer.php'); ?>
 
 
-    <script src="assets/js/header-footer.js"></script>
-    <script src="assets/js/navbar.js"></script>
+
+
+
     
-</body>
-
-</html> 

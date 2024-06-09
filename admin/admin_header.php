@@ -18,6 +18,6 @@
     <a href="#"><img src= "../assets/images/website-assets/logo.png" class="logo" alt=""></a>
     
     <?php if(isset($_SESSION['admin_logged_in'])) { ?>
-    <a href="admin_logout.php?logout=1">Sign Out</a>
+    <a class="btn" href="admin_logout.php?logout=1">Sign Out</a>
     <?php } ?>
 </header>

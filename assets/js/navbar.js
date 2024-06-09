@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-    fetch('header.html')
+    fetch('header.php')
         .then(response => response.text())
         .then(data => {
             document.querySelector('header').innerHTML = data;
@@ -8,9 +8,14 @@ document.addEventListener('DOMContentLoaded', () => {
             const close = document.getElementById('close');
             const nav = document.getElementById('navbar');
 
+                    
             if (bar) {
                 bar.addEventListener('click', () => {
-                    nav.classList.add('active');
+                    if (nav.classList.contains('active')) {
+                        nav.classList.remove('active');
+                    } else {
+                        nav.classList.add('active');
+                    }
                 });
             }
 
