@@ -71,12 +71,12 @@ if (isset($_SESSION['logged_in'])) {
                 <hr>
                 <div>
                     <label>Password</label>
-                    <input type="password" name="password" id="account-password" placeholder="new password" required>
+                    <input class="input" type="password" name="password" id="account-password" placeholder="new password" required>
                 </div>
 
                 <div>
                     <label>Confirm Password</label>
-                    <input type="password" name="confirmpassword" id="account-password-confirm" placeholder="Confirm new password" required>
+                    <input class="input" type="password" name="confirmpassword" id="account-password-confirm" placeholder="Confirm new password" required>
                 </div>
                 <div class="btn-container">
                     <input type="submit" name="change_password" class="btn" id="change_pass_btn">

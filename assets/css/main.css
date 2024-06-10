@@ -80,7 +80,7 @@ body {
  
 /* header attributes Nav bar*/
 
-header {
+#header {
     display: flex;
     align-content: center;
     justify-content: space-between;

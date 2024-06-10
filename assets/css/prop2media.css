@@ -4,6 +4,7 @@
         padding: 40px 80px;
     }
 
+
     #navbar {
         display: flex;
         flex-direction: column;
@@ -17,6 +18,7 @@
         background-color: #9298A6;
         padding: 80px 0 0 10px;
         transition: 0.3s;
+        z-index: 5;
     }
 
     #navbar.active {
@@ -40,7 +42,6 @@
     }
 
     #mobile i, #close {
-        color: #011c27;
         font-size: 24px;
     }
 
@@ -49,6 +50,7 @@
     }
 
     #close {
+        color: #ffffff;
         display: initial;
         position: absolute;
         top: 30px;
@@ -111,12 +113,8 @@
 
     #sm-banner .banner-box, #banner3 .banner-box {
         min-width: 100%;
-        height: 30vh;
+        height: 40vh;
         margin-bottom: 10px;
-    }
-
-    #banner3 {
-        padding: 0 40px;
     }
 
     #form-deatils {
@@ -144,6 +142,13 @@
     .account-info, .change-password {
         width: 100%;
     }
+
+    #orders table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+    overflow-x: scroll;
+}
 
     #orders td form {
         display: flex;
@@ -181,11 +186,6 @@
 
     h2 {
         font-size: 32px;
-    }
-
-    #mobile i, #close {
-        color: #011c27;
-        font-size: 24px;
     }
 
     #mobile i {
@@ -235,6 +235,7 @@
 
     #banner3 .banner-box, #banner4 .banner-box {
         min-width: 100%;
+        height: 40vh;
     }
 
     #newsletter {
@@ -313,4 +314,10 @@
     #login-form {
         width: 70%;
     }
+        #orders table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+    overflow-x: scroll;
+}
 }

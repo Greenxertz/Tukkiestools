@@ -17,7 +17,7 @@
 </head>
 
 <body>
-    <header>
+    <div id="header">
         <a href="#"><img src="assets/images/website-assets/logo.png" class="logo" alt=""></a>
         <div id="navbar">
             <ul>
@@ -32,7 +32,7 @@
         </div>
         <div id="mobile"> 
             <a href="cart.php" ><i class="far fa-shopping-cart"></i></a>
-            <i id="bar" class="fas fa-outdent"></i>
+            <a><i id="bar" class="fas fa-outdent"></i></a>
         </div>
-    </header>
-
+    </div>
+            <script src="assets/js/navbar.js"></script>

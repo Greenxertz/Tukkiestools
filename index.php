@@ -11,87 +11,6 @@
        </form> 
     </section>
 
-    <section>
-       <div id="cube-container">
-        <div id="cube">
-            <div class="face front"><img src="assets/images/website-assets/logo.png"></div>
-            <div class="face back"><img src="assets/images/website-assets/logo.png"></div>
-            <div class="face left"><img src="assets/images/website-assets/logo.png"></div>
-            <div class="face right"><img src="assets/images/website-assets/logo.png"></div>
-            <div class="face top"><img src="assets/images/website-assets/logo.png"></div>
-            <div class="face bottom"><img src="assets/images/website-assets/logo.png"></div>
-        </div>
-    </div>
-
-        <script>
-            let rotateX = 0;
-            let rotateY = 0;
-            let rotateSpeedX = 0;
-            let rotateSpeedY = 0;
-            let dragging = false;
-            let previousMouseX;
-            let previousMouseY;
-            let lastMoveTimestamp;
-
-            const cube = document.getElementById('cube');
-
-            function applyRotation() {
-                rotateX += rotateSpeedX;
-                rotateY += rotateSpeedY;
-                cube.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
-                requestAnimationFrame(applyRotation);
-            }
-
-            // Initial spin
-            rotateSpeedX = 0.5; // Adjust the initial spin speed
-            rotateSpeedY = 0.5; // Adjust the initial spin speed
-
-            cube.addEventListener('mousedown', (event) => {
-                dragging = true;
-                rotateSpeedX = 0;
-                rotateSpeedY = 0;
-                previousMouseX = event.clientX;
-                previousMouseY = event.clientY;
-                lastMoveTimestamp = Date.now();
-                cube.style.cursor = 'grabbing';
-            });
-
-            document.addEventListener('mousemove', (event) => {
-                if (!dragging) return;
-
-                const currentTime = Date.now();
-                const timeElapsed = currentTime - lastMoveTimestamp;
-
-                const deltaX = event.clientX - previousMouseX;
-                const deltaY = event.clientY - previousMouseY;
-
-                rotateSpeedX = deltaY / timeElapsed * 5;
-                rotateSpeedY = deltaX / timeElapsed * 5;
-
-                rotateX += deltaY * 0.5;
-                rotateY += deltaX * 0.5;
-
-                cube.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
-
-                previousMouseX = event.clientX;
-                previousMouseY = event.clientY;
-                lastMoveTimestamp = currentTime;
-            });
-
-            document.addEventListener('mouseup', () => {
-                dragging = false;
-                cube.style.cursor = 'grab';
-            });
-
-            document.addEventListener('mouseleave', () => {
-                dragging = false;
-                cube.style.cursor = 'grab';
-            });
-
-            requestAnimationFrame(applyRotation);
-        </script>
-    </section>
-
     <section id="feature" class="section-p1">
         <div class="fe-box">
             <img src= "assets/images/website-assets/shipping.png" alt="Free shipping icon">
@@ -191,31 +110,30 @@
     <section id="sm-banner" class="section-p1">
         <div class="banner-box">
             <h4>High School Students</h4>
-            <h2> Typical range of items for projects</h2>
+            <h2> Typical range of projects</h2>
             <span>Where the interests begin</span>
-            <button class="btn">Explore</button>
+            <a class="btn" href="https://www.instructables.com/9-12-Projects-High-School/">Explore</a>
         </div>
         <div class="banner-box banner-box2">
             <h4>Univeristy Students</h4>
-            <h2>Typical range of items for practicals</h2>
+            <h2>Typical range of practicals</h2>
             <span>Where the journey begins</span>
-            <button class="btn">Explore</button>
+            <a class="btn" href="https://www.guvi.in/blog/unique-project-ideas-for-college-students/">Explore</a>
         </div>
     </section>
 
-    <section id="banner3">
+
+    <h2 style="text-align: center;">Our range caters to these fields: </h2>
+
+    <section id="banner3">   
         <div class="banner-box">
             <h2>Technology </h2>
-            <h3>components</h3>
         </div>
         <div class="banner-box banner-box2">
             <h2>Wood working</h2>
-            <h3>accessories</h3>
         </div>
         <div class="banner-box banner-box3">
             <h2>Art studio</h2>
-            <h3>Supplies
-            </h3>
         </div>
     </section>
 

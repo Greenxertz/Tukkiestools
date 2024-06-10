@@ -87,16 +87,6 @@ body {
 
 /* /////////////////////////////////////////////////////////////////////////// */
 /* navigation  */
-#navbar {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding-top: 1rem;
-    padding-bottom: 1rem;
-    margin-left: auto;
-
-}
-
 #navbar li{
     list-style: none;
     padding: 0 20px;
@@ -114,12 +104,11 @@ body {
 
 #navbar ul {
     display: flex;
-    gap: 4px;
     list-style: none;
     justify-content: right;
 }
 
-#navbar ul li a {
+#navbar ul li a{
     position: relative;
     display: block;
     text-transform: uppercase;
@@ -130,12 +119,6 @@ body {
     font-weight: 600;
     transition: 1s;
     z-index: 1;
-}
-
-#mobile{
-    color: #ffffff ;
-    text-decoration: none;
-    align-items: center;
 }
 
 #navbar ul li a::before {
@@ -161,19 +144,24 @@ body {
     opacity: 1;
 }
 
+#mobile a {
+    color: #ffffff;
+}
+
  #mobile {
     display: none;
     align-items: center;
+    justify-content: space-between;
 } 
 
 #close {
     display: none;
 }
 
-header {
+#header {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
     background: #9298A6; /* Main Background Color */
     position: sticky;
     top: 0;
@@ -203,51 +191,7 @@ header {
 
 
 /* ///////////////////////////////////////////////////////////////////////////// */
-/* interactable object */
-#cube-container {
-    position: relative;
-    perspective: 1000px;
-    width: 100%;
-    height: 200px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-#cube {
-    position: absolute;
-    width: 100px;
-    height: 100px;
-    transform-style: preserve-3d;
-    transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
-    transition: transform 0.1s linear;
-    cursor: grab;
-}
-
-#cube img {
-    max-width: 100%;
-    max-height: 100%;
-}
-
-.face {
-    position: absolute;
-    width: 100px;
-    height: 100px;
-    background-image: linear-gradient(#263F73, #41494f, #9298A6, #41494f, #263F73);
-    border: 2px solid #ffffff;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.front  { transform: rotateY(0deg) translateZ(50px); }
-.back   { transform: rotateY(180deg) translateZ(50px); }
-.left   { transform: rotateY(-90deg) translateZ(50px); }
-.right  { transform: rotateY(90deg) translateZ(50px); }
-.top    { transform: rotateX(90deg) translateZ(50px); }
-.bottom { transform: rotateX(-90deg) translateZ(50px); }
-/* =====================================================================
-////features of business */
+/*////features of business */
 #feature {
     display: flex;
     align-items: center;
@@ -524,6 +468,7 @@ aside .pricerange {
     justify-content:space-between ;
     flex-wrap: wrap;
     padding: 0 80px;
+    width: 100%;
 }
 
 #banner3 .banner-box {
@@ -533,7 +478,6 @@ aside .pricerange {
     align-items: center;
     text-align: left;
     background-image: url(../images/website-assets/robotics.jpg) ;
-    min-width: 30%;
     height: 30vh;
     background-size: cover;
     background-position: 20% 40%;
@@ -541,6 +485,7 @@ aside .pricerange {
     margin-bottom: 20px ;
     background-color: rgba(255, 245, 245, 0.5);
     background-blend-mode: overlay;
+    width: 16rem;
 
 }
 
@@ -550,7 +495,6 @@ aside .pricerange {
 
 #banner3 .banner-box3 {
     background-image: url(../images/website-assets/arttools.jpg) ;  
-
 }
 
 #newsletter {
@@ -712,10 +656,7 @@ footer .copyright::after {
     font-weight: 600;
 }
 
-#pagination .active {
-    background-color: #263F73;
-    color: white;
-}
+
 
 #pagination span {
     padding: 15px 20px;
@@ -856,19 +797,19 @@ footer .copyright::after {
     text-align: center;
     flex-direction: column;
     padding: 14px;
-    background-color: rgba(0,0,0,0.6);
+    background-color: rgba(255, 255, 255, 0.6);
     background-blend-mode: overlay; 
 }
 
 #aboutpage-header h2, 
 #aboutpage-header p {
-    color: #ffffff;
+    color: #41494f;
 }
 
 #abouthead h2, 
 #abouthead p, 
 #about-app p{
-    color: #263F73;
+    color: #41494f;
 }
 
 #abouthead div{
@@ -882,13 +823,14 @@ footer .copyright::after {
 #about-app .video {
     width: 80%;
     height: 100%;
-    margin: 30px auto 0 auto;
+    margin: 30px auto 0 auto;  
 }
 
 #about-app .video video{
     width: 100%;
     height: 100%;
-    border-radius: 20px;
+    border-radius: 18px;
+    border: 2px #41494f solid;
 }
 
 /* cart page  */
@@ -1025,7 +967,7 @@ padding-bottom: 15px;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background: rgba(0, 0, 0, 0.5); /* Optional: adds a semi-transparent background for better readability */
+    background: rgba(255, 255, 255, 0.5); /* Optional: adds a semi-transparent background for better readability */
     z-index: 1;
     text-align: center;
     padding: 10px;
@@ -1035,7 +977,7 @@ padding-bottom: 15px;
 
 .text-overlay h2,
 .text-overlay p {
-       color: #9298A6;
+       color: #41494f;
 }
 
 .image-container {
@@ -1129,17 +1071,17 @@ font-size: 14px;
 
 #form-deatils {
   display: flex;
-    justify-content: space-between;
+    justify-content: column;
     margin: 30px;
     padding: 80px;
-    border: 1px solid #ebf0f3;
+    border: 1px solid #41494f;
 }
 
 #form-deatils form {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    width: 65%;
+    width: 80%;
 }
 
 #form-deatils form input, 
@@ -1151,10 +1093,6 @@ font-size: 14px;
     border:1px solid #d2d7da ;
 }
 
-#form-deatils form button {
-    background-color: #263F73;
-    color: #d2d7da;
-}
 
 #form-deatils .people div{
     padding-bottom: 25px;
@@ -1223,19 +1161,27 @@ font-size: 14px;
 
 #payment-form p{
     text-decoration-line: underline;
-    color: #263F73;
+    color: #41494f;
     
 }
 
+.input,
 #login-form input,
 #checkout-form input,
 #register-form input {
     width: 80%;
     margin: 5px auto;
     padding: 10px;
-    border: 1px solid #1C3659;
+    border: 1px solid #41494f;
     border-radius: 5px;
 }
+
+.input {
+   padding: 12px 15px; 
+   margin-bottom: 20px;
+   width: 100%;
+}
+
 
 #login-form button,
 #register-form button {
