@@ -85,7 +85,7 @@ if (isset($_POST['edit_quantity'])) {
                             <img src="assets/images/Shop-images/<?php echo  $value['product_image'];?>" alt="">
                             <div>
                                 <p><?php echo  $value['product_name'];?></p>
-                                <small><span>R</span><?php echo  $value['product_price'];?></small>
+                                <span>R<?php echo  $value['product_price'];?></span>
                                 <br>
                                 <form method="POST" action="cart.php" name="cart-form">
                                     <input type="hidden" name="product_id" value="<?php echo  $value['product_id'];?>">
@@ -112,19 +112,19 @@ if (isset($_POST['edit_quantity'])) {
     </section>
     <section id="cart-add" class="section-p1">
         <div id="subtotal">
-            <h3>Cart Total</h3>
+            <span>Cart Total</span>
             <table>
                 <tr>
-                    <td>Cart Total</td>
-                    <td>R <?php echo $_SESSION['total']; ?></td>
+                    <td><span>Cart Total</span></td>
+                    <td><span>R <?php echo $_SESSION['total']; ?></span></td>
                 </tr>
                 <tr>
-                    <td>Shipping</td>
-                    <td>Free</td>
+                    <td><span>Shipping</span></td>
+                    <td><span>Free</span></td>
                 </tr>
                 <tr>
-                    <td><strong>Total</strong></td>
-                    <td><strong>R <?php echo $_SESSION['total']; ?></strong></td>
+                    <td><span><strong>Total</strong></span></td>
+                    <td><span><strong>R <?php echo $_SESSION['total']; ?></strong></span></td>
                 </tr>
             </table>
             <div style="margin-bottom: 5px;">

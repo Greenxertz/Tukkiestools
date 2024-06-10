@@ -66,9 +66,8 @@ if (isset($_GET['product_id'])) {
             <h4><?php echo $row['product_category']; ?></h4>
             <?php $current_product_category = $row['product_category'];?>
             <h2><?php echo $row['product_name']; ?></h2>
-            <h3><?php echo $row['product_description']; ?></h3>
-            <h4>Price: R <?php echo $row['product_price']; ?></h4>
             <span><?php echo $row['product_description']; ?></span>
+            <h4>Price: R <?php echo $row['product_price']; ?></h4>
 
             <form method="POST" action="cart.php">
                 <input type="hidden" name="product_id" value="<?php echo $row['product_id']; ?>">

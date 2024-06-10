@@ -50,6 +50,8 @@ body {
     overflow: hidden; /* Hide the overflowing borders */
     transition: color 0.4s, border-color 0.4s;
     margin: 3px;
+    text-align: center;
+    z-index: 50;
 }
 
 .btn::before,
@@ -60,29 +62,34 @@ body {
     height: 2px; /* Thickness of the borders */
     background-color: #d2d7da; /* Color of the borders */
     transition: transform 0.8s, opacity 0.8s;
+    z-index: 51;
 }
 
 .btn::before {
     top: 0;
     left: 50%;
     transform: translateX(-50%) scaleX(0);
+     z-index: 51;
 }
 
 .btn::after {
     bottom: 0;
     left: 50%;
     transform: translateX(-50%) scaleX(0);
+     z-index: 51;
 }
 
 .btn:hover {
     color: #d2d7da;
     border-color: #41494f; /* Match the color of the borders */
+     z-index: 51;
 }
 
 .btn:hover::before,
 .btn:hover::after {
     transform: translateX(-50%) scaleX(1);
     opacity: 1;
+     z-index: 51;
 }
 
 /* /////////////////////////////////////////////////////////////////////////// */
@@ -520,8 +527,11 @@ aside .pricerange {
 }
 
 #newsletter .form{
-    display: flex;
+    display: row;
+    flex-direction: column;
+    justify-content: center;
     width: 40%;
+    padding: 10px;
 }
 
 #newsletter input {
@@ -532,8 +542,7 @@ aside .pricerange {
     border: 1px solid transparent;
     border-radius: 4px;
     outline: none;
-    border-top-right-radius: 0;
-    border-bottom-right-radius: 0;
+    
 }
 
 
@@ -596,7 +605,7 @@ footer .install img {
 
 footer .follow i:hover,
 footer a:hover {
-    color: #263F73;
+    color: #41494f;
 }
 
 footer .copyright {
@@ -1136,7 +1145,7 @@ font-size: 14px;
     margin: 20px auto;
     text-align: center;
     padding: 20px;
-    border: 1px solid #1C3659;
+    border: 1px solid #41494f;
     background-color: rgba(255, 255, 255, 0.8);
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -1211,7 +1220,7 @@ font-size: 14px;
 }
 
 .register-url {
-    color: #263F73;
+    color: #41494f;
     text-decoration: none;  
     margin-top: 10px;  
     display: inline-block; 
@@ -1246,7 +1255,7 @@ font-size: 14px;
 #order-table td,
 #orders-details th, 
 #orders-details td {
-    border: 1px solid #1C3659;
+    border: 1px solid #41494f;
     padding: 10px;
     text-align: left; 
 }
@@ -1257,7 +1266,7 @@ font-size: 14px;
 }
 #order-table td,
 #orders-details td{
-    text-decoration: underline #1C3659;
+    text-decoration: underline #41494f;
 }
 
 #orders-details img {
@@ -1280,12 +1289,6 @@ font-size: 14px;
 #orders-details td:nth-child(2),
 #orders-details th:nth-child(2) {
     width: 120px; /* Adjust the width as needed */
-}
-
-.btn {
-    margin: auto;
-    padding: auto;
-    cursor: pointer;
 }
 
 .btn-container {
@@ -1362,7 +1365,7 @@ font-size: 14px;
     border-radius: 0;
     padding: 10px;
     margin-right: 0;
-    background-color: #263F73; 
+    background-color: #9298A6; 
     position: sticky;
 }
 

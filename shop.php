@@ -164,18 +164,6 @@ if(isset($_POST['category']) && $_POST['category'] != 'All') {
         ?>
     </section>
 
-    <section id="newsletter" class="section-p1 section-m1">
-        <div class="newstext">
-            <h4>Want to be kept updated with whats happening?</h4>
-            <p>Sign Up <span>TODAY!</span></p>
-        </div>
-        <div class="form">
-            <input type="text" placeholder="Your email address">
-            <button class="btn" >Sign up</button>
-        </div>
-
-    </section>
-
     <script>
         function updateRangeValue(value) {
             document.getElementById('currentPrice').innerText = 'R ' + value;

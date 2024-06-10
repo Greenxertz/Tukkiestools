@@ -23,15 +23,15 @@ if(!isset($_SESSION['admin_logged_in'])) {
                     <thead>
                         <tr>
                             <th>Admin ID</th>
-                            <th>Admin Eame</th>
+                            <th>Admin Name</th>
                             <th>Admin Email</th>
                           
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
+                            <td><?php echo $_SESSION['admin_id']; ?></td>
                             <td><?php echo $_SESSION['admin_name']; ?></td>
-                            <td><?php echo $_SESSION['admin_email']; ?></td>
                             <td><?php echo $_SESSION['admin_email']; ?></td>
                         </tr>
                     </tbody>
