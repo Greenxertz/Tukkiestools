@@ -72,9 +72,9 @@ if (isset($_POST['edit_quantity'])) {
         <table width="100%">
             <thead>
                 <tr>
-                    <td>Items</td>
-                    <td>Quantity</td>
-                    <td>SubTotal</td>
+                    <td><span>Items</span></td>
+                    <td><span>Quantity</span></td>
+                    <td><span>SubTotal</span></td>
                 </tr>
             </thead>
             <tbody>
