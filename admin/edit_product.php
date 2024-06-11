@@ -130,7 +130,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                                             <div style="text-align: center;">
                                                 <?php if (!empty($product_edit["product_image$i"])): ?>
                                                     <div>
-                                                        <img src="../assets/images/shop-images/<?php echo htmlspecialchars($product_edit["product_image$i"]); ?>" alt="Product Image <?php echo $i; ?>" style="max-width: 100px;">
+                                                        <img src="../assets/images/Shop-images/<?php echo htmlspecialchars($product_edit["product_image$i"]); ?>" alt="Product Image <?php echo $i; ?>" style="max-width: 100px;">
                                                         <div style="border: 1px solid #ccc; padding: 5px;"><?php echo htmlspecialchars($product_edit["product_image$i"]); ?></div>
                                                         <input type="hidden" name="current_image_<?php echo $i; ?>" value="<?php echo htmlspecialchars($product_edit["product_image$i"]); ?>">
                                                     </div>
