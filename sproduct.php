@@ -85,7 +85,7 @@ if (isset($_GET['product_id'])) {
     <?php } ?>     
    
         <section id="product1" class="section-p1">
-        <br>
+        <hr>
         <h2>Similar Products</h2>
         <p>Have a gander at something else that might catch your interest</p>
             <div class="pro-container">
