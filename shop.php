@@ -4,7 +4,7 @@ include('server/connection.php');
 $page_no = isset($_GET['page_no']) && $_GET['page_no'] != "" ? $_GET['page_no'] : 1;
 
 // Set the number of records per page
-$total_records_per_page = 9;
+$total_records_per_page = 10;
 $offset = ($page_no - 1) * $total_records_per_page;
 
 $previous_page = $page_no - 1;

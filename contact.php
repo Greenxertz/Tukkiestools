@@ -1,8 +1,6 @@
 <?php include('header.php'); ?>
 
 <section>
-    
-    
         <div class="image-container">
             <div class="text-overlay">
                 <h2>Want to get hold of us?</h2>
@@ -13,7 +11,6 @@
           <div class="scrolling-image"></div>  
         </div>
         </div>
-
 </section>
   
 

@@ -145,13 +145,13 @@
     }
 
     .account-container {
-        flex-direction: column; /* Stack items vertically */
-        align-items: stretch; /* Remove equal height alignment */
+        flex-direction: column; 
+        align-items: stretch; 
     }
 
     .account-info,
     .change-password {
-        width: 100%; /* Full width for both sections */
+        width: 100%; 
     }
 
     #orders td form {
@@ -161,11 +161,10 @@
     }
 
     #orders .btn {
-        font-size: 10px; /* Smaller font size for small screens */
-        padding: 4px 8px; /* Adjust padding for small screens */
+        font-size: 10px; 
+        padding: 4px 8px; 
     }
    
-
 }
 
 @media  (max-width: 477px) {

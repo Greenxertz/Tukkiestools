@@ -8,7 +8,7 @@
 }
 
 h1, h2, h4, p, span {
-    color: #41494f; /* Bright Red */
+    color: #41494f; 
 }
 
 h1 { font-size: 50px; line-height: 64px; }
@@ -17,7 +17,7 @@ h4 { font-size: 30px; }
 p, span { font-size: 20px; font-weight: 700; margin: 15px 0 20px 0; }
 
 html {
-    background-color: #9298A6; /* Main Background Color */
+    background-color: #9298A6; 
 }
 
 body {
@@ -45,9 +45,9 @@ body {
     border-radius: 10px;
     cursor: pointer;
     outline: none;
-    border: 2px solid transparent; /* Transparent border to start */
+    border: 2px solid transparent; 
     position: relative;
-    overflow: hidden; /* Hide the overflowing borders */
+    overflow: hidden; 
     transition: color 0.4s, border-color 0.4s;
     margin: 3px;
     text-align: center;
@@ -59,8 +59,8 @@ body {
     content: "";
     position: absolute;
     width: 100%;
-    height: 2px; /* Thickness of the borders */
-    background-color: #d2d7da; /* Color of the borders */
+    height: 2px; 
+    background-color: #d2d7da; 
     transition: transform 0.8s, opacity 0.8s;
     z-index: 51;
 }
@@ -81,7 +81,7 @@ body {
 
 .btn:hover {
     color: #d2d7da;
-    border-color: #41494f; /* Match the color of the borders */
+    border-color: #41494f; 
      z-index: 51;
 }
 
@@ -248,7 +248,7 @@ body {
     align-items: center;
     justify-content: space-between;
     flex-wrap: wrap;
-    gap: 20px; /* Adds space between the boxes */
+    gap: 20px; 
 }
 
 #feature .fe-box {
@@ -256,7 +256,7 @@ body {
     height: 20vh;
     text-align: center;
     padding: 25px 15px;
-    border: 1px solid #41494f; /* Bright Red */
+    border: 1px solid #41494f;
     border-radius: 4px;
     margin: 15px 0;
     display: flex;
@@ -269,7 +269,7 @@ body {
 
 #feature .fe-box img {
     width: 80%;
-    max-height: 80%; /* Ensures the image doesn't take more than half of the box */
+    max-height: 80%; 
     object-fit: cover;
 }
 
@@ -277,13 +277,13 @@ body {
     display: inline-block;
     padding: 9px 8px 6px 8px;
     border-radius: 4px;
-    color: #d2d7da; /* Bright Red */
-    background-color: #41494f; /* Light Gray */
-    white-space: nowrap; /* Prevents text wrapping */
+    color: #d2d7da; 
+    background-color: #41494f;
+    white-space: nowrap; 
 }
 /* ////////////////////////////////////////////////////////////////////////////////////////////////
 ////products cards */
-/* Container for products, ensuring it holds the cards properly */
+/* Container for products */
 #product1 {
     text-align: center;
     background-color: #9298A6;
@@ -300,28 +300,26 @@ body {
 /* Container for individual cards */
 .card-container {
     display: flex;
-    flex-direction: column; /* Ensure the cards are stacked in a column */
-    align-items: center; /* Center the cards horizontally */
-    justify-content: center; /* Center the cards vertically */
-    padding: 0 5px; /* Adjust padding as necessary */
+    flex-direction: column; 
+    align-items: center;
+    justify-content: center; 
+    padding: 0 5px; 
     margin: 15px 0;
     min-width: 250px;
-    box-sizing: border-box; /* Include padding and border in the element's total width and height */
-}
+    box-sizing: border-box; 
+    }
 
 /* Individual card styling */
 #product1 .card {
     position: relative;
     background-color: transparent;
-    width: 23%; /* Reduced width */
+    width: 23%; 
     min-width: 250px;
-   
-    height: 200px; /* Reduced height */
-    border-radius: 16px; /* Reduced border radius */
+    height: 200px; 
+    border-radius: 16px; 
     border: 5px solid #41494f;
-    transition: transform 0.4s ease-in-out; /* Added box-shadow transition */
+    transition: transform 0.4s ease-in-out;
     cursor: pointer;
-
 }
 
 /* Hover effect for the card */
@@ -351,7 +349,7 @@ body {
     width: 100%;
     height: 100%;
     backface-visibility: hidden;
-    border-radius: 10px; /* Reduced border radius */
+    border-radius: 10px;
 }
 
 /* Image styling for the card back */
@@ -361,9 +359,9 @@ body {
     left: 50%;
     transform: translate(-50%, -90%);
     width: auto;
-    height: 40%; /* Reduced height */
+    height: 40%; 
     object-fit: cover;
-    border-radius: 10px 10px 10px 10px; /* Reduced border radius */
+    border-radius: 10px 10px 10px 10px; 
 }
 
 /* Image styling for the card front */
@@ -371,7 +369,7 @@ body {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    border-radius: 10px; /* Reduced border radius */
+    border-radius: 10px;
 }
 
 /* Styling for the card back */
@@ -380,7 +378,7 @@ body {
     color: #ffffff;
     transform: rotateY(180deg);
     position: relative;
-    border-radius: 10px; /* Reduced border radius */
+    border-radius: 10px;
     overflow: hidden;
 }
 
@@ -390,7 +388,7 @@ body {
     bottom: 0;
     left: 0;
     width: 100%;
-    padding: 5px; /* Adjusted padding */
+    padding: 5px; 
     box-sizing: border-box;
 }
 
@@ -403,21 +401,21 @@ body {
 aside {
     float: left;
     position: sticky;
-    top: 100px; /* Adjust this value as needed */
-    width: 250px; /* Set a fixed width for the aside element */
-    margin-right: 20px; /* Add some margin to the right side */
-    padding: 20px; /* Add padding for better readability */
-    background-color: #9298A6; /* Light background color */
+    top: 100px; 
+    width: 250px; 
+    margin-right: 20px;
+    padding: 20px;
+    background-color: #9298A6;
     border: 1px solid #263F73;
-    border-radius: 40px; /* Rounded corners */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add a subtle shadow for better separation */
+    border-radius: 40px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
 }
 
 
 aside p, 
 aside a {
-    font-weight: bold; /* Make the paragraph text bold */
-    margin-bottom: 10px; /* Add some space below the paragraph */
+    font-weight: bold; 
+    margin-bottom: 10px;
 }
 
 aside a {
@@ -428,20 +426,20 @@ aside a {
 }
 
 aside input[type="radio"] {
-    display: inline-block; /* Display radio buttons inline */
-    vertical-align: middle; /* Align radio buttons vertically */
-    margin-right: 15px; /* Add some space to the right of each radio button */
+    display: inline-block; 
+    vertical-align: middle;
+    margin-right: 15px;
 }
 
 aside label {
-    display: inline-block; /* Display labels inline */
-    vertical-align: middle; /* Align labels vertically */
-    margin-right: 15px; /* Add some space to the right of each label */
+    display: inline-block; 
+    vertical-align: middle; 
+    margin-right: 15px; 
 }
 
 aside input[type="range"] {
-    width: 100%; /* Make the range input take the full width */
-    margin-top: 10px; /* Add some margin at the top */
+    width: 100%; 
+    margin-top: 10px; 
 }
 
 aside .pricerange {
@@ -457,13 +455,13 @@ aside .pricerange {
 .searchbar input[type="radio"] {
     display: inline-block;
     vertical-align: middle;
-    margin-right: 5px; /* Space between radio button and label */
+    margin-right: 5px; 
 }
 
 .searchbar label {
     display: inline-block;
     vertical-align: middle;
-    cursor: pointer; /* Make label clickable */
+    cursor: pointer; 
 }
 
 
@@ -476,7 +474,7 @@ aside .pricerange {
     align-items: center;
     width: 100%;
     height: 40vh;
-    background-image: linear-gradient( to bottom left, #263F73, #9298A6); /* Light Gray and Gray */
+    background-image: linear-gradient( to bottom left, #263F73, #9298A6);
 }
 
 #sm-banner {
@@ -725,16 +723,16 @@ footer .copyright::after {
 }
 
 #mainimg {
-    width: 40vh; /* Set the width to your desired value */
-    height: 40vh; /* Set the height to your desired value */
-    object-fit: fill; /* Ensure the image covers the specified dimensions */
+    width: 40vh; 
+    height: 40vh; 
+    object-fit: fill; 
     border: 5px solid #41494f;
     border-radius: 40px;
 }
 
 .image-gallery {
     flex: 1; /* Grow to fill available space */
-    margin-right: 20px; /* Add spacing between image gallery and details section */
+    margin-right: 20px; 
 }
 
 .details-section {
@@ -753,16 +751,15 @@ footer .copyright::after {
 
 .small-img-group {
     display: flex;
-    flex-wrap: nowrap ; /* Allow items to wrap to the next line */
-    justify-content: center; /* Center the items horizontally */
-    margin-top: 10px; /* Add some top margin */
-    
+    flex-wrap: nowrap ;
+    justify-content: center; 
+    margin-top: 10px; 
 }
 
 .small-img-col {
-    flex:1 1 22%; /* Set the initial size of each item */
+    flex:1 1 22%; 
     cursor: pointer;
-    margin: 0 3px;  /* Add some bottom margin between the items */    
+    margin: 0 3px;     
 }
 
 .small-img-col img {
@@ -1020,7 +1017,7 @@ padding-bottom: 15px;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background: rgba(255, 255, 255, 0.5); /* Optional: adds a semi-transparent background for better readability */
+    background: rgba(255, 255, 255, 0.5); 
     z-index: 1;
     text-align: center;
     padding: 10px;
@@ -1332,7 +1329,7 @@ font-size: 14px;
 
 #orders-details td:nth-child(2),
 #orders-details th:nth-child(2) {
-    width: 120px; /* Adjust the width as needed */
+    width: 120px; 
 }
 
 .btn-container {
@@ -1346,20 +1343,20 @@ font-size: 14px;
 .account-container {
     display: flex;
     justify-content: space-between;
-    align-items: stretch; /* Ensure equal height */
+    align-items: stretch; 
 }
 
 .account-info, 
 .change-password {
     width: 48%;
     display: flex;
-    flex-direction: column; /* Make the elements inside stack vertically */
-    justify-content: space-between; /* Space elements evenly */
+    flex-direction: column; 
+    justify-content: space-between; 
     padding: 20px;
 }
 
 .change-password label {
-    margin-bottom: 10px; /* Add margin below the label */
+    margin-bottom: 10px; 
 }
 
 .account-info h3, .change-password h3 {
@@ -1399,7 +1396,7 @@ font-size: 14px;
 /* admin */
 .admin-container {
     display: flex;
-    height: 100vh; /* Full height */
+    height: 100vh; 
 }
 
 .sidebar {

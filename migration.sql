@@ -54,7 +54,7 @@ ALTER TABLE `products` CHANGE `product_image` `product_image1` VARCHAR(255) CHAR
 ALTER TABLE `orders` CHANGE `order_cost` `order_cost` DECIMAL(10,2) NOT NULL;
 ALTER TABLE `order_items` CHANGE `product_price` `product_price` DECIMAL(10,2) NOT NULL;
 ALTER TABLE `products` CHANGE `product_price` `product_price` DECIMAL(10,2) NOT NULL;
-
+ALTER TABLE `orders` ADD INDEX(`user_id`);
 
 -- populates the database
 -- Insert data into the 'users' table

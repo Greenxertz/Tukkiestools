@@ -69,10 +69,7 @@ if (isset($_POST['login_btn'])) {
                     <label for="login-password">Password</label>
                     <input type="password" class="form-control" id="login-password" name="password" placeholder="Password" required>
                     <i class="fas fa-eye-slash toggle-password" id="toggle-password"></i>            
-
-                    <button type="submit" class="btn" id="login-btn" name="login_btn">Sign In</button>
-               
-                    
+                    <button type="submit" class="btn" id="login-btn" name="login_btn">Sign In</button> 
                 </div>
                 <div class="form-group">
                     <a href="register.php" class="register-url">Don't have an account? Register</a>

@@ -23,7 +23,7 @@
         </div>
     </div>
 
-    <script src='assets/js/cube.js'></script>
+        <script src='assets/js/cube.js'></script>
     
     </section>
 
@@ -63,7 +63,7 @@
 
             <?php while($row = $featured_products->fetch_assoc()){ ?>
 
-                   <div class="card-container">
+                <div class="card-container">
                     <div class="card" onclick="window.location.href='<?php echo "sproduct.php?product_id=". $row['product_id'];?>';">
                         <div class="card-inner">
                             <div class="card-front">
@@ -96,7 +96,6 @@
         <h2>New Arrivals</h2>
         <p>Some of the latest Items</p>
         <div class="pro-container">
-
             <?php include('server/new_arrivals.php') ?>
 
             <?php while($row = $new_products->fetch_assoc()){ ?>
@@ -120,7 +119,7 @@
                 </div>
             <?php } ?>
                
-     </div>
+        </div>
     </section>
 
     <section id="sm-banner" class="section-p1">
