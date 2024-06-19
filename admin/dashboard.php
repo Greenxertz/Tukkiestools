@@ -45,7 +45,7 @@ $all_orders = $stmt2->get_result();
                             <th>Order Date</th>
                             <th>User ID</th>
                             <th>User Phone</th>
-                            <th>Specified Address</th> 
+                            <th>Specified University</th> 
                             <th>Edit</th>
                             <th>Delete</th>
                         </tr>

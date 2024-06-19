@@ -48,7 +48,7 @@ if( !empty($_SESSION['cart'])) {
                     <input type="text" class="" name="city" id="checkout-city" placeholder="City" required>
                 </div>
                 <div class="form-group">
-                    <label>Address:</label>
+                    <label>University:</label>
                     <input type="text" class="" name="address" id="checkout-address" placeholder="Address" required>
                 </div>
                 <p style="color: red;">Total amount: R <?php echo $_SESSION['total']?></p>
